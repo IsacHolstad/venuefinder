@@ -120,30 +120,28 @@ const HeaderNavigation = () => {
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
-                                    className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
-                                >
-                                    Dashboard
+                                    className="block border-l-4 border-indigo-200 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700"
+                                ><NavLink to="/signin">login</NavLink>
+                                </Disclosure.Button>
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                ><NavLink to="/">Team</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
-                                    Team
+                                    <NavLink to="/">Projects</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
-                                    Projects
-                                </Disclosure.Button>
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-                                >
-                                    Calendar
+                                    <NavLink to="/">Calendar</NavLink>
                                 </Disclosure.Button>
                             </div>
                         </Disclosure.Panel>
