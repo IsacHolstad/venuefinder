@@ -19,7 +19,7 @@ const HeaderNavigation = () => {
                             <div className="flex h-16 justify-between">
                                 <div className="flex px-2 lg:px-0">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <p>"logo"</p>
+                                        <NavLink to="/" className="font-bold">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                                         <NavLink

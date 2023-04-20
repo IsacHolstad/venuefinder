@@ -10,7 +10,7 @@ function App() {
     <>
       <HeaderNavigation/>
       <Router/>
-      <Loader/>
+        {/*<Loader/>*/}
       <Footer/>
     </>
 
