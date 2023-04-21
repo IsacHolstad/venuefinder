@@ -16,7 +16,7 @@ const Home = () => {
     ]
     return (
         <>
-            <div className="w-full max-w-lg lg:max-w-xs">
+            <div className="w-full max-w-lg lg:max-w-xs flex-col mx-auto mt-2">
                 <label htmlFor="search" className="sr-only">
                     Search
                 </label>
@@ -27,13 +27,13 @@ const Home = () => {
                     <input
                         id="search"
                         name="search"
-                        className="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className=" block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mx-auto"
                         placeholder="Search"
                         type="search"
                     />
                 </div>
             </div>
-            <div className="bg-white ">
+            <div className="bg-white">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <h2 className="sr-only">Products</h2>
 
