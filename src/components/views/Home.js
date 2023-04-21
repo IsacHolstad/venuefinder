@@ -1,6 +1,6 @@
 import React from 'react';
 import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
-
+import {Link} from "react-router-dom";
 const Home = () => {
     const products = [
 
@@ -11,6 +11,7 @@ const Home = () => {
             price: '$35',
             imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
             imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
+            rating: "4/10"
         },
 
     ]
@@ -49,6 +50,10 @@ const Home = () => {
                                 </div>
                                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
                                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                                <p className="mt-1 text-lg font-medium text-gray-900">rating: {product.rating}</p>
+                                <button className="rounded-md w-1/2 h-12 mt-2 bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                                    <Link className="flex flex-col mx-auto" to="/">View Venue</Link>
+                                </button>
                             </a>
                         ))}
                     </div>

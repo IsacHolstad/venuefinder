@@ -126,6 +126,7 @@ const HeaderNavigation = () => {
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
                                     <NavLink to="/">Calendar</NavLink>
+                                    <p className="block border-l-4 border-transparent py-2 pr-6 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800">userName: isac</p>
                                 </Disclosure.Button>
                             </div>
                         </Disclosure.Panel>
