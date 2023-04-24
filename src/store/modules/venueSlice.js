@@ -3,8 +3,8 @@ import {createSlice} from "@reduxjs/toolkit";
 const venueSlice = createSlice({
     name: 'venues',
     initialState: {
-        venues: [],
-        singleVenue: [],
+        data: [],
+        singleVenue: [], //may be [] instead of null in singleVenues
     },
     reducers: {
         SET_VENUE: (state, action) => {
@@ -18,6 +18,7 @@ const venueSlice = createSlice({
 
 const {SET_VENUE} = venueSlice.actions;
 const {SET_SINGLE_VENUE} = venueSlice.actions;
+export default venueSlice.reducer;
 
 export const fetchVenues = () => async (dispatch) => {
     //dispatch loading
@@ -25,13 +26,13 @@ export const fetchVenues = () => async (dispatch) => {
         const response = await fetch ('https://nf-api.onrender.com/api/v1/holidaze/venues');
         console.log(response)
         const data = await response.json();
+        console.log("HERE IS API DATA", data)
         dispatch(SET_VENUE(data))
     }
     catch (e) {
         console.log(e)
     }
 }
-fetchVenues()
 
 export const fetchSingleVenues = (id) => async dispatch => {
     dispatch(SET_SINGLE_VENUE({}));
