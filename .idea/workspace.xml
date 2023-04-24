@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="948f9d44-59f5-4d6d-9768-c81d05927d05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/modules/venueSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/venueSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +62,7 @@
       <workItem from="1681734225496" duration="382000" />
       <workItem from="1681900679068" duration="5581000" />
       <workItem from="1681989616727" duration="11427000" />
+      <workItem from="1682324015174" duration="1090000" />
     </task>
     <servers />
   </component>

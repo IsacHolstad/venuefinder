@@ -1,20 +1,17 @@
 import React from 'react';
 import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
 import {Link} from "react-router-dom";
+import {fetchVenues} from "../../store/modules/venueSlice";
+import {fetchSingleVenues} from "../../store/modules/venueSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+
 const Home = () => {
-    const products = [
-
-        {
-            id: 2,
-            name: 'Nomad Tumbler',
-            href: '#',
-            price: '$35',
-            imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-            imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-            rating: "4/10"
-        },
-
-    ]
+    const dispatch = useDispatch();
+    const {data} = useSelector(state => state.data);
+    useEffect(() => {
+        dispatch(fetchVenues());
+    }, [dispatch])
     return (
         <>
             <div className="w-full max-w-lg lg:max-w-xs flex-col mx-auto mt-2">
@@ -39,18 +36,17 @@ const Home = () => {
                     <h2 className="sr-only">Products</h2>
 
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                        {products.map((product) => (
-                            <a key={product.id} href={product.href} className="group">
+                        {data.map((data) => (
+                            <a key={data.id} href={data.href} className="group">
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                                     <img
-                                        src={product.imageSrc}
-                                        alt={product.imageAlt}
+                                        src={data.media}
+                                        alt={data.name}
                                         className="h-full w-full object-cover object-center group-hover:opacity-75"
                                     />
                                 </div>
-                                <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-                                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-                                <p className="mt-1 text-lg font-medium text-gray-900">rating: {product.rating}</p>
+                                <h3 className="mt-4 text-sm text-gray-700">{data.name}</h3>
+                                <p className="mt-1 text-lg font-medium text-gray-900">{data.price}</p>
                                 <button className="rounded-md w-1/2 h-12 mt-2 bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                     <Link className="flex flex-col mx-auto" to="/">View Venue</Link>
                                 </button>
