@@ -44,7 +44,6 @@ function Home()  {
                                     />
                                 </div>
                                 <h3 className="mt-4 text-sm text-gray-700">{data.name}</h3>
-                                {/*<p className="mt-1 text-lg font-medium text-gray-900">{data.price}</p>*/}
                                 <button className="rounded-md w-1/2 h-12 mt-2 bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                     <Link className="flex flex-col mx-auto" to="/">View Venue</Link>
                                 </button>
@@ -52,6 +51,7 @@ function Home()  {
                         ))}
                     </div>
                 </div>
+
             </div>
         </>
     );
