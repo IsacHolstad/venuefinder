@@ -3,7 +3,7 @@ import {combineReducers} from '@reduxjs/toolkit';
 import venueSlice from "./modules/venueSlice";
 
 const reducer = combineReducers({
-    data: venueSlice,
+    venues: venueSlice,
 
     }
 )
