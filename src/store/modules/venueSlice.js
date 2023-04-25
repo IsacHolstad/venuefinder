@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const venueSlice = createSlice({
     name: 'venues',
     initialState: {
-        data: [],
+        venues: [],
         singleVenue: [], //may be [] instead of null in singleVenues
     },
     reducers: {
@@ -23,14 +23,15 @@ export default venueSlice.reducer;
 export const fetchVenues = () => async (dispatch) => {
     //dispatch loading
     try{
-        const response = await fetch ('https://nf-api.onrender.com/api/v1/holidaze/venues');
-        console.log(response)
+        const response = await fetch ("https://nf-api.onrender.com/api/v1/holidaze/venues");
+        console.log("RESPONSE IN VENUESLICE IS HERE!!!!!!", response);
         const data = await response.json();
         console.log("HERE IS API DATA", data)
         dispatch(SET_VENUE(data))
     }
     catch (e) {
         console.log(e)
+        console.log("respone failed")
     }
 }
 
