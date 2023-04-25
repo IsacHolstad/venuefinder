@@ -19,7 +19,7 @@ const HeaderNavigation = () => {
                             <div className="flex h-16 justify-between">
                                 <div className="flex px-2 lg:px-0">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <NavLink to="/" className="font-bold">VenueFinder</NavLink>
+                                        <NavLink to="/" className="font-bold text-blue-400">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                                         <NavLink
@@ -55,7 +55,6 @@ const HeaderNavigation = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
-
                                 </div>
                                 <div className="flex items-center lg:hidden">
                                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -73,13 +72,11 @@ const HeaderNavigation = () => {
                                         className="flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                     >
                                         <span className="sr-only">View notifications</span>
-                                        <BellIcon className="h-6 w-6" aria-hidden="true" />
                                     </button>
                                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                                         <div>
                                             <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                                                 <span className="sr-only">Open user menu</span>
-
                                             </Menu.Button>
                                         </div>
                                         <Transition
@@ -92,15 +89,14 @@ const HeaderNavigation = () => {
                                             leaveTo="transform opacity-0 scale-95"
                                         >
                                             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-
                                             </Menu.Items>
                                         </Transition>
                                     </Menu>
                                 </div>
                             </div>
                         </div>
-                        <Disclosure.Panel className="lg:hidden">
-                            <div className="space-y-1 pb-3 pt-2">
+                        <Disclosure.Panel className="lg:hidden ">
+                            <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-300 z-50 border-b-2 border-gray-500">
                                 <Disclosure.Button
                                     as="a"
                                     href="#"

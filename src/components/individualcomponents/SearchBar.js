@@ -4,7 +4,7 @@ import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
 const SearchBar = () => {
     return (
         <>
-            <div className="w-full max-w-lg lg:max-w-xs flex-col mx-auto mt-2">
+            <div className="w-full max-w-lg lg:max-w-xs flex-col mx-auto mt-4">
                 <label htmlFor="search" className="sr-only">
                     Search
                 </label>
