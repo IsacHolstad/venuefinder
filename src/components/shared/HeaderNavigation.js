@@ -96,7 +96,7 @@ const HeaderNavigation = () => {
                             </div>
                         </div>
                         <Disclosure.Panel className="lg:hidden ">
-                            <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-300 z-50 border-b-2 border-gray-500">
+                            <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-50 z-50">
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
@@ -126,9 +126,9 @@ const HeaderNavigation = () => {
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
-                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-red-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-red-600 hover:text-red-500 hover:border-gray-300 hover:bg-gray-50"
                                 >
-                                    <NavLink to="/">Logout</NavLink>
+                                    <NavLink to="/" className="hover:text-red-500">Logout</NavLink>
                                 </Disclosure.Button>
                             </div>
                         </Disclosure.Panel>
