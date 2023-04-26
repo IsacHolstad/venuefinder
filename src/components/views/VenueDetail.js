@@ -13,6 +13,7 @@ const VenueDetail = () => {
             dispatch(fetchSingleVenues(id))
         }
     }, [dispatch, id])
+    console.log(id)
     return (
         <>
             <h1 className="text-3xl text-center mt-12">Venue Detail Page</h1>
