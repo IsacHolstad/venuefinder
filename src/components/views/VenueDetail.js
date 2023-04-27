@@ -14,9 +14,14 @@ const VenueDetail = () => {
         }
     }, [dispatch, id])
     console.log(id)
+    console.log("single venue data:",singleVenue)
     return (
         <>
-            <h1 className="text-3xl text-center mt-12">Venue Detail Page</h1>
+            <div>
+                {singleVenue.name}
+                {singleVenue.id}
+
+            </div>
         </>
     );
 };
