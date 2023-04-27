@@ -1,18 +1,13 @@
 import React from 'react';
 import {NavLink, Link} from "react-router-dom";
-
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 const HeaderNavigation = () => {
     return (
         <>
-            <Disclosure as="nav" className="bg-white shadow">
+            <Disclosure as="nav" className="bg-white ">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -71,7 +66,6 @@ const HeaderNavigation = () => {
                                         type="button"
                                         className="flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                                     >
-                                        <span className="sr-only">View notifications</span>
                                     </button>
                                     <Menu as="div" className="relative ml-4 flex-shrink-0">
                                         <div>

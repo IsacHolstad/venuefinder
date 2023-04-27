@@ -13,15 +13,12 @@ const VenueDetail = () => {
             dispatch(fetchSingleVenues(id))
         }
     }, [dispatch, id])
-    console.log(id)
+    console.log("ID IS HERE",id)
     console.log("single venue data:",singleVenue)
+    console.log(singleVenue.id)
     return (
         <>
-            <div>
-                {singleVenue.name}
-                {singleVenue.id}
-
-            </div>
+            <h1 className="text-center mt-12">HELLO</h1>
         </>
     );
 };
