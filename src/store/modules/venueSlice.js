@@ -4,7 +4,7 @@ const venueSlice = createSlice({
     name: 'venues',
     initialState: {
         venues: [],
-        singleVenue: {}, //may be [] instead of null in singleVenues
+        singleVenue: [], //may be [] instead of null in singleVenues
     },
     reducers: {
         SET_VENUE: (state, action) => {
@@ -47,9 +47,6 @@ export const fetchSingleVenues = (id) => async dispatch => {
         console.log("name is here ",data.name)
         dispatch(SET_SINGLE_VENUE(data));
     } catch (e) {
-        console.log("ERROR HERE",e);
-
-
+        console.log(e);
     }
-
 }

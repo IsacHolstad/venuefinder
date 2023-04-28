@@ -19,7 +19,7 @@ const VenueDetail = () => {
         <>
             <h1 className="text-center mt-12">HELLO</h1>
             <div>HERE IS ID: {singleVenue.id}</div>
-            <div>{singleVenue.name}</div>
+            <div>HERE IS NAME:{singleVenue.name}</div>
         </>
     );
 };
