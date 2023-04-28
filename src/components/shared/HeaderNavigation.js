@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const HeaderNavigation = () => {
     return (
         <>
-            <Disclosure as="nav" className="bg-white ">
+            <Disclosure as="nav" className="bg-white border-b-2 border-blue-400">
                 {({ open }) => (
                     <>
                         <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
@@ -129,8 +129,6 @@ const HeaderNavigation = () => {
                     </>
                 )}
             </Disclosure>
-
-
         </>
     );
 };

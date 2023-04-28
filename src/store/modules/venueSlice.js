@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {setLoadingState} from "./loaderSlice";
 
 const venueSlice = createSlice({
     name: 'venues',
@@ -37,7 +38,7 @@ export const fetchVenues = () => async (dispatch) => {
 
 export const fetchSingleVenues = (id) => async dispatch => {
     dispatch(SET_SINGLE_VENUE({id}));
-    //dispatch loading
+    dispatch(setLoadingState(true))
     let response;
     try{
         response = await (`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`);
@@ -46,7 +47,9 @@ export const fetchSingleVenues = (id) => async dispatch => {
         console.log("DETAIL DATA HERE!",data)
         console.log("name is here ",data.name)
         dispatch(SET_SINGLE_VENUE(data));
+        dispatch(setLoadingState(false))
     } catch (e) {
         console.log(e);
+        dispatch(setLoadingState(false))
     }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loader = () => {
     return (
-        <div className="text-center py-64">
+        <div className="text-center">
             <div role="status">
                 <svg aria-hidden="true"
                      className="inline w-8 h-8 mr-2 text-gray-200 animate-spin fill-gray-200"
