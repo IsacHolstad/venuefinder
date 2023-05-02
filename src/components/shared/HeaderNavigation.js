@@ -122,7 +122,7 @@ const HeaderNavigation = () => {
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-red-600 hover:text-red-500 hover:border-gray-300 hover:bg-gray-50"
                                 >
-                                    <NavLink to="/" className="hover:text-red-500">Logout</NavLink>
+                                    <NavLink to="/signin" className="hover:text-red-500">Logout</NavLink>
                                 </Disclosure.Button>
                             </div>
                         </Disclosure.Panel>
