@@ -42,7 +42,7 @@ function Home()   {
                                     <img
                                         src={venue.media}
                                         alt={venue.name}
-                                        className="h-full w-full object-cover object-center group-hover:opacity-75"
+                                        className="h-full w-full object-cover object-center "
                                     />
                                 </div>
                                 <h3 className="mt-4 text-sm text-gray-700">{venue.name}</h3>
