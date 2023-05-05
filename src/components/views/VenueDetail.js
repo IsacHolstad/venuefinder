@@ -17,7 +17,7 @@ const VenueDetail = () => {
     console.log("SINGLE VENUE DATA:",singleVenue)
     return (
         <>
-            <h1 className="text-center mt-12">HELLO</h1>
+            <h1 className="text-center mt-12">HELLO DATA BELOW:</h1>
             <div>HERE IS ID: {singleVenue.id}</div>
             <div>HERE IS NAME:{singleVenue.name}</div>
         </>

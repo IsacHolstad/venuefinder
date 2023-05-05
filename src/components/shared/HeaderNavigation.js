@@ -21,31 +21,25 @@ const HeaderNavigation = () => {
                                             to="/"
                                             className="inline-flex items-center border-b-2 border-indigo-500 px-1 pt-1 text-sm font-medium text-gray-900"
                                         >
-                                            Dashboard
+                                            Home
+                                        </NavLink>
+                                        <NavLink
+                                            to="/createvenue"
+                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        >
+                                            Create Venue
                                         </NavLink>
                                         <NavLink
                                             to="/"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
-                                            Team
-                                        </NavLink>
-                                        <NavLink
-                                            to="/"
-                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        >
-                                            Projects
+                                            Hey👋🏼 Isac
                                         </NavLink>
                                         <NavLink
                                             to="/signup"
-                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-red-500 hover:text-red-500"
                                         >
-                                            Calendar
-                                        </NavLink>
-                                        <NavLink
-                                            to="/signup"
-                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        >
-                                            Profile
+                                            Logout
                                         </NavLink>
                                     </div>
                                 </div>
@@ -101,7 +95,7 @@ const HeaderNavigation = () => {
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-                                ><NavLink to="/">Create Venue</NavLink>
+                                ><NavLink to="/createvenue">Create Venue</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"
