@@ -21,7 +21,7 @@ const CreateVenue = () => {
                                         id="name"
                                         name="name"
                                         type="text"
-                                        autoComplete="email"
+                                        placeholder="venue name"
                                         required
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
@@ -36,6 +36,22 @@ const CreateVenue = () => {
                                         id="location"
                                         name="location"
                                         type="text"
+                                        placeholder="venue location"
+                                        required
+                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Price
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="price"
+                                        name="price"
+                                        type="text"
+                                        placeholder="venue price"
                                         required
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
@@ -55,7 +71,6 @@ const CreateVenue = () => {
                                     />
                                 </div>
                             </div>
-
                             <div>
                                 <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
                                     Description
@@ -75,9 +90,9 @@ const CreateVenue = () => {
                             <div>
                                 <button
                                     type="submit"
-                                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
-                                    Submit
+                                    Post Venue
                                 </button>
                             </div>
                         </form>
