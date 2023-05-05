@@ -60,7 +60,6 @@ const SignUp = () => {
                             </div>
                             <div className="flex items-center justify-between">
                             </div>
-
                             <div>
                                 <button
                                     type="submit"

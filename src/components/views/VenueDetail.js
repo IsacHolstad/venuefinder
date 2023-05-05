@@ -14,12 +14,15 @@ const VenueDetail = () => {
         }
     }, [dispatch, id])
     console.log("ID IS HERE",id)
-    console.log("SINGLE VENUE DATA:",singleVenue)
+    console.log("SINGLE VENUE DATA✅",singleVenue)
     return (
         <>
-            <h1 className="text-center mt-12">HELLO DATA BELOW:</h1>
-            <div>HERE IS ID: {singleVenue.id}</div>
-            <div>HERE IS NAME:{singleVenue.name}</div>
+            <div className="mx-auto text-center">
+                <h1 className="text-center mt-12">HELLO DATA BELOW:</h1>
+                <div>HERE IS ID: {singleVenue.id}</div>
+                <div>HERE IS NAME:{singleVenue.name}</div>
+                <img src={singleVenue.media}/>
+            </div>
         </>
     );
 };

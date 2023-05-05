@@ -22,17 +22,17 @@ const {SET_SINGLE_VENUE} = venueSlice.actions;
 export default venueSlice.reducer;
 
 export const fetchVenues = () => async (dispatch) => {
-    //dispatch loading
+    dispatch(setLoadingState(true))
     try{
         const response = await fetch ("https://nf-api.onrender.com/api/v1/holidaze/venues");
-        console.log("RESPONSE IN VENUESLICE IS HERE!!!!!!", response);
         const data = await response.json();
         console.log("HERE IS API DATA", data)
         dispatch(SET_VENUE(data));
+        dispatch(setLoadingState(false))
     }
     catch (e) {
         console.log(e);
-        console.log("respone failed")
+        dispatch(setLoadingState(false))
     }
 }
 
@@ -43,9 +43,10 @@ export const fetchSingleVenues = (id) => async dispatch => {
     try{
         response = await (`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`);
         const data = await response.json();
+        console.log("✅", response)
+
         //TODO error with response.json()
-        console.log("DETAIL DATA HERE!",data)
-        console.log("name is here ",data.name)
+
         dispatch(SET_SINGLE_VENUE(data));
         dispatch(setLoadingState(false))
     } catch (e) {
