@@ -83,7 +83,7 @@ const HeaderNavigation = () => {
                                 </div>
                             </div>
                         </div>
-                        <Disclosure.Panel className="lg:hidden ">
+                        <Disclosure.Panel className="lg:hidden">
                             <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-50 z-50">
                                 <Disclosure.Button
                                     as="a"
