@@ -17,7 +17,7 @@ function Router () {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/createvenue" element={<CreateVenue/>}/>
                 <Route path="/profilepage" element={<ProfilePage/>}/>
-                <Route path="/venuedetail/:id" element={<VenueDetail/>}/>
+                <Route path="/venueDetail/:id" element={<VenueDetail/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>
         </>
