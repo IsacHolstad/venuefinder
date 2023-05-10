@@ -14,7 +14,7 @@ const SignIn = () => {
                         <form className="space-y-6" action="#" method="POST">
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                                    Email address
+                                    Email
                                 </label>
                                 <div className="mt-2">
                                     <input
@@ -27,7 +27,6 @@ const SignIn = () => {
                                     />
                                 </div>
                             </div>
-
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                     Password
@@ -43,10 +42,8 @@ const SignIn = () => {
                                     />
                                 </div>
                             </div>
-
                             <div className="flex items-center justify-between">
                             </div>
-
                             <div>
                                 <button
                                     type="submit"
