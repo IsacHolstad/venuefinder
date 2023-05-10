@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from "react";
+import {useState} from "react"; //not needed yet
 
 const tokenKey = "token";
 const userKey = "user";
@@ -49,4 +49,3 @@ function clearStorage() {
 }
 
 export {getToken, saveToken, saveUser, getUserName, clearStorage}
-
