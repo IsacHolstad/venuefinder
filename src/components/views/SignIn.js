@@ -1,6 +1,9 @@
 import React from 'react';
+import {validateEmail} from "../../data/validation";
+import {saveUser, saveToken} from "../../data/storage";
 
 const SignIn = () => {
+    
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -11,7 +14,7 @@ const SignIn = () => {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
                     <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-                        <form className="space-y-6" action="#" method="POST">
+                        <form className="space-y-6" id="logInForm" action="#" method="POST">
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                     Email
