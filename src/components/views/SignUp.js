@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {validateEmail} from "../../data/validation";
 import {validatePassword} from "../../data/validation";
+import {Link} from "react-router-dom";
+import signIn from "./SignIn";
 
 
 const SignUp = () => {
@@ -21,6 +23,7 @@ const SignUp = () => {
         })
         result = await result.json();
         console.log("RESULT HERE!!", result)
+        localStorage.setItem("user-info", JSON.stringify(result))
     }
 
     return (
@@ -85,7 +88,8 @@ const SignUp = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between text-sm">
+                                HERE TO PUT VENUE MANAGER OR NOT
                             </div>
                             <div>
                                 <button
