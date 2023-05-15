@@ -49,9 +49,9 @@ function Home()   {
                                 </div>
                                 <h3 className="mt-4 text-sm text-gray-700">{venue.name}</h3>
                                 <h3 className=" text-sm text-gray-700">Price: {venue.price}$</h3>
-                                <h3 className="text-sm text-gray-700">Rating: {venue.rating}/10</h3>
+                                <h3 className="text-sm text-gray-700 mb-4">Rating: {venue.rating}/10</h3>
                                 <Link to={`venueDetail/${venue.id}`} className="rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                    <button className="mt-4">View Venue</button>
+                                    View Venue
                                 </Link>
                             </div>
                         ))}

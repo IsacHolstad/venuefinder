@@ -36,7 +36,7 @@ const HeaderNavigation = () => {
                                             Hey👋🏼 Isac
                                         </NavLink>
                                         <NavLink
-                                            to="/signup"
+                                            to="/signin"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-red-500 hover:text-red-500 hover:border-red-500"
                                         >
                                             Logout

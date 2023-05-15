@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {useState} from "react";
 
 const CreateVenue = () => {
+    const [name, setName] = useState("");
+    const [location, setLocation] = useState("");
+    const [price, setPrice] = useState("");
+    const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
+
+    function postVenue() {
+
+    }
+
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
