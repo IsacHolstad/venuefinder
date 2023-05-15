@@ -37,13 +37,13 @@ export const fetchVenues = () => async (dispatch) => {
 }
 
 export const fetchSingleVenues = (id) => async dispatch => {
-    dispatch(SET_SINGLE_VENUE({id}));
-    dispatch(setLoadingState(true))
+    dispatch(setLoadingState(true)); // Turn the loader on
     let response;
     try{
-        response = await (`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`);
+        response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`);
+        console.log("response: ",response);
         const data = await response.json();
-        console.log("✅", response)
+        console.log("✅", response);
 
         //TODO error with response.json()
 

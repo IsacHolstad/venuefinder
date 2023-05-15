@@ -9,6 +9,7 @@ const VenueDetail = () => {
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
     useEffect(() => {
+        console.log("id: ",id);
         if (id) {
             dispatch(fetchSingleVenues(id))
         }
