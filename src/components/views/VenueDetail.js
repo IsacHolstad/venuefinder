@@ -15,7 +15,6 @@ const VenueDetail = () => {
             dispatch(fetchSingleVenues(id))
         }
     }, [dispatch, id])
-    console.log("ID IS HERE",id)
     return (
         <>
             <div className="bg-white">
@@ -34,7 +33,7 @@ const VenueDetail = () => {
                                     <h2 className="sr-only">Rating</h2>
                                     <div className="flex items-center">
                                         <div>
-                                            <p className="sr-only">{singleVenue.rating} out of 5 stars</p>
+                                            <p className="sr-only">{singleVenue.rating} out of 10</p>
                                             <p>Rating: {singleVenue.rating} / 10</p>
                                         </div>
                                     </div>
@@ -54,7 +53,7 @@ const VenueDetail = () => {
                     <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
-                            <p className="text-gray-500">{singleVenue.wifi}</p>
+                            <p className="text-gray-500">{singleVenue.name}</p>
                             <form>
                                 <div className="mt-10">
                                     <button
