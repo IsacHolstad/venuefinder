@@ -1,9 +1,30 @@
-import React from 'react';
-import {validateEmail} from "../../data/validation";
-import {saveUser, saveToken} from "../../data/storage";
+import React, {useEffect} from 'react';
+//import {validateEmail} from "../../data/validation";
+//import {saveUser, saveToken} from "../../data/storage";
 import {useState} from "react";
 
 const SignIn = () => {
+    const [setEmail, email] = useState("");
+    const [setPassword, password] = useState("");
+
+   async function loggingIn(){
+
+        console.log(password, email)
+        let item = {email, password};
+       console.log(item)
+       let result =  await fetch('https://nf-api.onrender.com/api/v1/holidaze/auth/login', {
+           method: 'POST',
+           headers: {
+               "Content-Type" : "application/json",
+               "Accept": 'application/json'
+           },
+           body: JSON.stringify(item)
+       });
+        result = await result.json();
+        localStorage.setItem("user-info", JSON.stringify(result))
+
+    }
+
 
 
     return (
@@ -16,7 +37,7 @@ const SignIn = () => {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
                     <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-                        <form className="space-y-6" id="logInForm" action="#" method="POST">
+                        <form className="space-y-6">
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                                     Email
@@ -26,8 +47,9 @@ const SignIn = () => {
                                         id="email"
                                         name="email"
                                         type="email"
-                                        autoComplete="email"
                                         required
+                                        placeholder="example@noroff.no"
+                                        onChange={(e) => setEmail(e.target.value)}
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
@@ -41,7 +63,7 @@ const SignIn = () => {
                                         id="password"
                                         name="password"
                                         type="password"
-                                        autoComplete="current-password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                         required
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
@@ -52,6 +74,7 @@ const SignIn = () => {
                             <div>
                                 <button
                                     type="submit"
+                                    onClick={loggingIn}
                                     className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Sign in

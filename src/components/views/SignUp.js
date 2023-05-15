@@ -62,6 +62,7 @@ const SignUp = () => {
                                         id="email"
                                         name="email"
                                         type="email"
+                                        placeholder="example@noroff.no"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
