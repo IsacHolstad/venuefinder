@@ -10,7 +10,6 @@ const VenueDetail = () => {
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
     useEffect(() => {
-        console.log(id)
         if (id) {
             dispatch(fetchSingleVenues(id))
         }
@@ -53,7 +52,6 @@ const VenueDetail = () => {
                     <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
-                            <p className="text-gray-500">{singleVenue.name}</p>
                             <form>
                                 <div className="mt-10">
                                     <button
@@ -68,7 +66,6 @@ const VenueDetail = () => {
                     </div>
                 </div>
             </div>
-
         </>
 
     )};
