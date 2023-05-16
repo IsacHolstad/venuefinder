@@ -5,6 +5,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const HeaderNavigation = () => {
+    const userName = localStorage.getItem('user-info')
+    console.log(userName)
     return (
         <>
             <Disclosure as="nav" className="bg-white border-b-2 border-blue-400">
@@ -33,7 +35,7 @@ const HeaderNavigation = () => {
                                             to="/profilepage"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
-                                            Hey👋🏼 Isac
+                                            Hey👋🏼 {userName}
                                         </NavLink>
                                         <NavLink
                                             to="/signin"
@@ -109,7 +111,7 @@ const HeaderNavigation = () => {
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
-                                    <NavLink to="/profilepage">Hey👋🏼 Isac</NavLink>
+                                    <NavLink to="/profilepage">Hey👋🏼 {userName}</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"

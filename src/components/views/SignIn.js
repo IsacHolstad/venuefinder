@@ -10,7 +10,6 @@ const SignIn = () => {
 
    async function loggingIn(event){
        event.preventDefault();
-
         console.log(password, email)
         let item = {email, password};
        console.log(item)
