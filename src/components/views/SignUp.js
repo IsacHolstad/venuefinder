@@ -9,6 +9,7 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [venueManager, setVenueManager] = useState();
 
     async function register() {
         let item = {name, email, password}
@@ -86,8 +87,18 @@ const SignUp = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between text-sm">
-                                HERE TO PUT VENUE MANAGER OR NOT
+                            <div className="flex flex-col items-center justify-between text-sm">
+                                <label htmlFor="venueManager" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Venue Manger
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="venueManager"
+                                        name="venueManager"
+                                        type="checkbox"
+                                        className="block rounded-md "
+                                    />
+                                </div>
                             </div>
                             <div>
                                 <button
