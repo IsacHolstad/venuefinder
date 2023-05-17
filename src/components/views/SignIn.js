@@ -1,6 +1,4 @@
 import React, {useEffect} from 'react';
-//import {validateEmail} from "../../data/validation";
-//import {saveUser, saveToken} from "../../data/storage";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
@@ -82,7 +80,6 @@ const SignIn = () => {
                 </div>
             </div>
         </>
-    );
-};
+    )};
 
 export default SignIn;
