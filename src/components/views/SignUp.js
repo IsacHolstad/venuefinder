@@ -6,7 +6,8 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [venueManager, setVenueManager] = useState();
+    const [isVenueManager, setIsVenueManager] = useState(false);
+
 
     async function register() {
         let item = {name, email, password}
@@ -23,6 +24,10 @@ const SignUp = () => {
         console.log(result.name)
         localStorage.setItem("USER-INFO", JSON.stringify(result))
     }
+    const handleCheckBox = (event) => {
+        setIsVenueManager(event.target.checked)
+    }
+
 
     return (
         <>
@@ -93,7 +98,8 @@ const SignUp = () => {
                                         id="venueManager"
                                         name="venueManager"
                                         type="checkbox"
-                                        onChange={(e) => setVenueManager(e.target.value)}
+                                        checked={isVenueManager}
+                                        onChange={handleCheckBox}
                                         className="block rounded-md"
                                     />
                                 </div>
