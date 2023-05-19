@@ -7,7 +7,18 @@ const CreateVenue = () => {
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
 
-    function postVenue() {
+    async function postVenue() {
+        let item = {name, location, price, image, description};
+        console.log(item)
+        let result = await fetch("https://nf-api.onrender.com/api/v1/holidaze/venues", {
+            method: "POST",
+            body: JSON.stringify(item),
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        })
+        result = await result.json();
+        console.log(result);
 
     }
 
@@ -21,7 +32,7 @@ const CreateVenue = () => {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
                     <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-                        <form  className="space-y-6" action="#" method="POST">
+                        <form  className="space-y-6" onSubmit={postVenue}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                                     Name
@@ -29,6 +40,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <input
                                         id="name"
+                                        onChange={(e) => setName(e.target.value)}
                                         name="name"
                                         type="text"
                                         placeholder="venue name"
@@ -44,6 +56,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <input
                                         id="location"
+                                        onChange={(e) => setLocation(e.target.value)}
                                         name="location"
                                         type="text"
                                         placeholder="venue location"
@@ -59,6 +72,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <input
                                         id="price"
+                                        onChange={(e) => setPrice(e.target.value)}
                                         name="price"
                                         type="text"
                                         placeholder="venue price"
@@ -74,6 +88,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <input
                                         id="image"
+                                        onChange={(e) => setImage(e.target.value)}
                                         name="image"
                                         type="text"
                                         placeholder="Image URL"
@@ -88,6 +103,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <textarea
                                         id="description"
+                                        onChange={(e) => setDescription(e.target.value)}
                                         name="description"
                                         required
                                         placeholder="Write description of youre venue"
@@ -95,15 +111,12 @@ const CreateVenue = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between">
-                            </div>
                             <div>
-                                <button
+                                <input
                                     type="submit"
+                                    value="Post Venue"
                                     className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                    Post Venue
-                                </button>
+                                />
                             </div>
                         </form>
                         <div>

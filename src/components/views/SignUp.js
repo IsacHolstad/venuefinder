@@ -37,7 +37,7 @@ const SignUp = () => {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
                     <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-                        <form  className="space-y-6">
+                        <form  className="space-y-6" onSubmit={register}>
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                                     Name
@@ -96,22 +96,22 @@ const SignUp = () => {
                                         id="venueManager"
                                         name="venueManager"
                                         type="checkbox"
-                                        className="block rounded-md "
+                                        onChange={(e) => setVenueManager(e.target.value)}
+                                        className="block rounded-md"
                                     />
                                 </div>
                             </div>
                             <div>
-                                <button
+                                <input
                                     type="submit"
-                                    onClick={register}
+                                    value="Sign Up"
                                     className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                >
-                                    Sign Up
-                                </button>
+                                />
                             </div>
                         </form>
-                        <div>
-                        </div>
+                        <Link to="/signin">
+                            <p className="mt-4 text-sm text-blue-400">Already Have Account? Click Here</p>
+                        </Link>
                     </div>
                 </div>
             </div>

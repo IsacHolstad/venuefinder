@@ -66,8 +66,6 @@ const SignIn = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center justify-between">
-                            </div>
                             <div>
                                 <input
                                     type="submit"
@@ -75,6 +73,9 @@ const SignIn = () => {
                                     className="flex w-full justify-center rounded-md hover:pointer  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 />
                             </div>
+                            <Link to="/signup">
+                                <p className="text-sm text-blue-400 mt-4">Dont Have Account? Click Here</p>
+                            </Link>
                         </form>
                     </div>
                 </div>
