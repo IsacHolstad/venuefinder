@@ -5,7 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const HeaderNavigation = () => {
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState('');
 
     useEffect(() => {
         const storedData = localStorage.getItem('user-info');
@@ -16,7 +16,6 @@ const HeaderNavigation = () => {
 
     const logOutBtn = () => {
         localStorage.clear();
-        alert("you are loged out")
     }
     return (
         <>
@@ -41,6 +40,12 @@ const HeaderNavigation = () => {
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
                                             Hey👋🏼  {userData.name}
+                                        </NavLink>
+                                        <NavLink
+                                            to="/signin"
+                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                                        >
+                                            SignIn
                                         </NavLink>
                                         <NavLink
                                             to="/signin"
@@ -105,6 +110,13 @@ const HeaderNavigation = () => {
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
                                     <NavLink to="/profilepage">Hey👋🏼  {userData.name}</NavLink>
+                                </Disclosure.Button>
+                                <Disclosure.Button
+                                    as="a"
+                                    href="#"
+                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
+                                >
+                                    <NavLink to="/signin">SignIn</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"
