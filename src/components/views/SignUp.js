@@ -22,7 +22,7 @@ const SignUp = () => {
         result = await result.json();
         console.log("RESULT HERE!!", result)
         console.log(result.name)
-        localStorage.setItem("USER-INFO", JSON.stringify(result))
+        localStorage.setItem("user-info", JSON.stringify(result))
     }
     const handleCheckBox = (event) => {
         setIsVenueManager(event.target.checked)
@@ -66,6 +66,7 @@ const SignUp = () => {
                                         name="email"
                                         type="email"
                                         placeholder="example@stud.noroff.no"
+                                        title="email must be @stud.noroff.no"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
@@ -101,6 +102,7 @@ const SignUp = () => {
                                         checked={isVenueManager}
                                         onChange={handleCheckBox}
                                         className="block rounded-md"
+                                        title="by being a venue mangager you can create a venue and book venues"
                                     />
                                 </div>
                             </div>

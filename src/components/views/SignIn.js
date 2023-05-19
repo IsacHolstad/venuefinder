@@ -16,9 +16,11 @@ const SignIn = () => {
            headers: {
                "Content-Type" : "application/json",
            },
-           body: item
+           body: JSON.stringify(item)
+
        });
         result = await result.json();
+        console.log(result)
         localStorage.setItem("user-info", JSON.stringify(result))
 
     }
