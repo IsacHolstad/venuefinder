@@ -19,6 +19,8 @@ function getToken() {
         return null
     }
 }
+
+console.log(getToken)
 function saveUser(user){
     saveToStorage(userKey, user);
 }
@@ -44,6 +46,7 @@ function getFromStorage(key) {
         return []
     }
 }
+
 function clearStorage() {
     localStorage.clear();
 }
