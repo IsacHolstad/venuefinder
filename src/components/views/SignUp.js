@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
-import {validateEmail} from "../../data/validation";
-import {validatePassword} from "../../data/validation";
 import {Link} from "react-router-dom";
-import signIn from "./SignIn";
 
 
 const SignUp = () => {
@@ -19,12 +16,12 @@ const SignUp = () => {
             body: JSON.stringify(item),
             headers: {
                 "Content-Type" : "application/json",
-                "Accept" : "application/json"
             }
         })
         result = await result.json();
         console.log("RESULT HERE!!", result)
-        localStorage.setItem("user-info", JSON.stringify(result))
+        console.log(result.name)
+        localStorage.setItem("USER-INFO", JSON.stringify(result))
     }
 
     return (
@@ -63,7 +60,7 @@ const SignUp = () => {
                                         id="email"
                                         name="email"
                                         type="email"
-                                        placeholder="example@noroff.no"
+                                        placeholder="example@stud.noroff.no"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required

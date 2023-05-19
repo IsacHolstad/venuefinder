@@ -7,6 +7,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const HeaderNavigation = () => {
     const userName = localStorage.getItem('user-info')
     console.log(userName)
+    const logOutBtn = () => {
+        localStorage.clear();
+        alert("you are loged out")
+    }
     return (
         <>
             <Disclosure as="nav" className="bg-white border-b-2 border-blue-400">
@@ -19,12 +23,6 @@ const HeaderNavigation = () => {
                                         <NavLink to="/" className="font-bold text-blue-400">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                                        <NavLink
-                                            to="/"
-                                            className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                                        >
-                                            Home
-                                        </NavLink>
                                         <NavLink
                                             to="/createvenue"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -39,6 +37,7 @@ const HeaderNavigation = () => {
                                         </NavLink>
                                         <NavLink
                                             to="/signin"
+                                            onClick={logOutBtn}
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-red-500 hover:text-red-500 hover:border-red-500"
                                         >
                                             Logout
@@ -90,21 +89,8 @@ const HeaderNavigation = () => {
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
-                                    className="block border-l-4 hover:border-gray-300 border-transparent  py-2 pl-3 pr-4 text-base font-medium text-gray-600"
-                                ><NavLink to="/">Home</NavLink>
-                                </Disclosure.Button>
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 ><NavLink to="/createvenue">Create Venue</NavLink>
-                                </Disclosure.Button>
-                                <Disclosure.Button
-                                    as="a"
-                                    href="#"
-                                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-                                >
-                                    <NavLink to="/">Projects</NavLink>
                                 </Disclosure.Button>
                                 <Disclosure.Button
                                     as="a"
@@ -116,6 +102,7 @@ const HeaderNavigation = () => {
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
+                                    onClick={logOutBtn}
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-red-600 hover:text-red-700 hover:border-gray-300 hover:bg-red-100"
                                 >
                                     <NavLink to="/signin" className="hover:text-red-500">Logout</NavLink>

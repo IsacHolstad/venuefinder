@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProfilePage = () => {
+    const profile = localStorage.getItem('user-info');
     return (
         <>
             <h1 className="text-center mt-12">PROFILE PAGE</h1>
@@ -13,7 +14,11 @@ const ProfilePage = () => {
                                 <div className="w-full px-4 flex justify-center">
                                     <div className="relative">
                                         <div
-                                            className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"></div>
+                                            className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px mx-auto">
+                                            <img
+                                                src="https://media.istockphoto.com/id/1300512215/photo/headshot-portrait-of-smiling-ethnic-businessman-in-office.jpg?b=1&s=170667a&w=0&k=20&c=TXCiY7rYEvIBd6ibj2bE-VbJu0rRGy3MlHwxt2LHt9w="
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="w-full px-4 text-center mt-20">
@@ -33,11 +38,11 @@ const ProfilePage = () => {
                             </div>
                             <div className="text-center mt-12">
                                 <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700">
-                                    "name"
+                                    {profile}
                                 </h3>
                                 <div className="mb-2 text-blueGray-600 mt-10">
                                     <h3 className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></h3>
-                                    "email@gmail.com"
+                                    {profile}
                                 </div>
                             </div>
                             <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
