@@ -8,12 +8,11 @@ import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
 function Home()   {
     const dispatch = useDispatch();
     const {venues} = useSelector(state => state.venues);
-    const [search, setSearch] = useState();
+    const [search, setSearch] = useState('');
     useEffect(() => {
         dispatch(fetchVenues());
     }, [dispatch]);
     const memoVenue = useMemo(() => venues, [venues])
-
     return (
         <>
             <div className="bg-white">
@@ -38,7 +37,10 @@ function Home()   {
                         </div>
                     </div>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                        {memoVenue.map((venue) => (
+                        {memoVenue.filter((item) => {
+                            return search.toLowerCase() === '' ? item : item.name.
+                                toLowerCase().includes(search)
+                        }).map((venue) => (
                             <div key={venue.id} className="group">
                                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md  xl:aspect-h-8 xl:aspect-w-7">
                                     <img
