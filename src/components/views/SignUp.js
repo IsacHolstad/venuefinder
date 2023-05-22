@@ -6,26 +6,27 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isVenueManager, setIsVenueManager] = useState(false);
+    const [venueManager, setVenueManger] = useState(false);
+    const [avatar, setAvatar] = useState('');
 
-
-    async function register() {
-        let item = {name, email, password}
+    async function register(event) {
+        event.preventDefault()
+        let item = {name, email, password, venueManager, avatar}
         console.log(item)
         let result = await fetch("https://nf-api.onrender.com/api/v1/holidaze/auth/register", {
             method: "POST",
-            body: JSON.stringify(item),
             headers: {
                 "Content-Type" : "application/json",
-            }
+            },
+            body: JSON.stringify(item)
         })
         result = await result.json();
-        console.log("RESULT HERE!!", result)
-        console.log(result.name)
         localStorage.setItem("user-info", JSON.stringify(result))
+        console.log(localStorage)
     }
     const handleCheckBox = (event) => {
-        setIsVenueManager(event.target.checked)
+        setVenueManger(event.target.checked)
+        console.log(event.target.value)
     }
 
 
@@ -75,6 +76,22 @@ const SignUp = () => {
                                 </div>
                             </div>
                             <div>
+                                <label htmlFor="avatar" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Profile Image
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="avatar"
+                                        name="avatar"
+                                        type="text"
+                                        placeholder="Image URL"
+                                        value={avatar}
+                                        onChange={(e) => setAvatar(e.target.value)}
+                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                </div>
+                            </div>
+                            <div>
                                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                     Password
                                 </label>
@@ -99,7 +116,7 @@ const SignUp = () => {
                                         id="venueManager"
                                         name="venueManager"
                                         type="checkbox"
-                                        checked={isVenueManager}
+                                        checked={venueManager}
                                         onChange={handleCheckBox}
                                         className="block rounded-md"
                                         title="by being a venue mangager you can create a venue and book venues"

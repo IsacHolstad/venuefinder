@@ -10,9 +10,6 @@ const ProfilePage = () => {
         }
     }, [])
 
-
-
-
     return (
         <>
             <h1 className="text-center mt-12">PROFILE PAGE</h1>
@@ -52,23 +49,17 @@ const ProfilePage = () => {
                                 <div className="mb-2 text-blueGray-600 mt-10">
                                     <h3 className="fas fa-briefcase mr-2 text-lg text-blueGray-400"> {userData.email}</h3>
                                 </div>
-                                {userData.venueManager}
-
                             </div>
                             <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                                 <div className="flex flex-wrap justify-center">
                                     <div className="w-full lg:w-9/12 px-4">
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </section>
-
-            
         </>
     );
 };
