@@ -1,27 +1,36 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 
 const ProfilePage = () => {
     const [userData, setUserData] = useState('');
 
     useEffect(() => {
         const userData = localStorage.getItem('user-info');
+        console.log(userData)
         if (userData) {
             setUserData(JSON.parse(userData))
         }
     }, [])
-    const userId = userData.id
-    async function getUserVenues(event) {
-        event.preventDefault();
-        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userId}/venues`, {
+    const userName = userData.name
+    console.log(userName)
+    const userKey = userData.accesstoken
+    console.log(userKey)
+
+    async function getUserVenues() {
+        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userKey}/venues`, {
             method: "GET",
             headers: {
-                "Authorization" : "application/json"
+                "Content-Type" : "application/json",
             }
 
         })
-        console.log(result)
-        //TODO not done
+        const userVenue = await result.json();
+        console.log("here",userVenue)
+
     }
+
+
+
 
     return (
         <>
@@ -35,10 +44,13 @@ const ProfilePage = () => {
                                     <div className="relative">
                                             <img
                                                 src={userData.avatar}
-                                                className="w-full h-full object-contain mx-auto max-w-lg max-h-lg bg-gray-300"
+                                                className="w-full h-full object-contain mx-auto max-w-lg max-h-lg bg-gray-100"
                                             />
                                     </div>
                                 </div>
+                                <Link to="/editavatar">
+                                    <p className="text-sm text-center mt-2 text-blue-400 font-medium">Edit Avatar</p>
+                                </Link>
                                 <div className="w-full px-4 text-center mt-20">
                                     <div className="flex justify-center py-4 lg:pt-4 pt-8">
                                         <div className="mr-4 p-3 text-center">
@@ -72,7 +84,7 @@ const ProfilePage = () => {
                                                 alt="venue name"
                                             />
                                             <button className="flex w-full  justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                                                View "name"
+                                                View {}
                                             </button>
 
                                         </div>

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="948f9d44-59f5-4d6d-9768-c81d05927d05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/views/EditAvatar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/HeaderNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/HeaderNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/CreateVenue.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/CreateVenue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/ProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/ProfilePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/VenueDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/VenueDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/validation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/modules/venueSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/venueSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +81,7 @@
       <workItem from="1682517828978" duration="14921000" />
       <workItem from="1683272559543" duration="8682000" />
       <workItem from="1683550335766" duration="2000" />
-      <workItem from="1683562972388" duration="56899000" />
+      <workItem from="1683562972388" duration="65956000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const CreateVenue = () => {
     const [name, setName] = useState("");
@@ -7,6 +7,17 @@ const CreateVenue = () => {
     const [media, setMedia] = useState("");
     const [description, setDescription] = useState("");
     const [MaxGuests, setMaxGuests] = useState("");
+    const [userData, setUserData] = useState("");
+
+    useEffect(() => {
+        const userData = localStorage.getItem('user-info');
+        console.log(userData)
+        if (userData) {
+            setUserData(JSON.parse(userData))
+        }
+    }, [])
+    const userKey = userData.accessToken
+    console.log("USER KEY HERE!!!", userKey)
 
     async function postVenue(event) {
         event.preventDefault()
@@ -15,7 +26,8 @@ const CreateVenue = () => {
         let result = await fetch("https://nf-api.onrender.com/api/v1/holidaze/venues", {
             method: "POST",
             headers: {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${userKey}`
             },
             body: JSON.stringify(item)
         })
@@ -80,7 +92,6 @@ const CreateVenue = () => {
                                         type="text"
                                         value={price}
                                         placeholder="venue price"
-                                        required
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
@@ -128,7 +139,6 @@ const CreateVenue = () => {
                                         onChange={(e) => setDescription(e.target.value)}
                                         name="description"
                                         value={description}
-                                        required
                                         placeholder="Write description of youre venue"
                                         className="block w-full h-32 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />

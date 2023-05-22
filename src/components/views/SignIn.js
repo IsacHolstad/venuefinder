@@ -5,6 +5,20 @@ import {Link} from "react-router-dom";
 const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [userData, setUserData] = useState("");
+
+    useEffect(() => {
+        const userData = localStorage.getItem('user-info');
+        if (userData) {
+            setUserData(JSON.parse(userData))
+        }
+    }, [])
+    console.log("data here", userData)
+    const accessToken = userData.accessToken
+    console.log("ACCESSTOKEN HERE: ", accessToken)
+
+
+
 
    async function loggingIn(event){
        event.preventDefault();
@@ -84,5 +98,5 @@ const SignIn = () => {
             </div>
         </>
     )};
-
 export default SignIn;
+
