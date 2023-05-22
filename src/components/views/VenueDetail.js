@@ -17,6 +17,10 @@ const VenueDetail = () => {
     const bookedVenueBtn = () =>{
         alert("Venue is booked")
     }
+    function buttonBooking(event) {
+        event.preventDefault()
+    }
+
 
     return (
         <>

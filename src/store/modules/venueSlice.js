@@ -5,7 +5,7 @@ const venueSlice = createSlice({
     name: 'venues',
     initialState: {
         venues: [],
-        singleVenue: null, //may be [] instead of null in singleVenues
+        singleVenue: [],
     },
     reducers: {
         SET_VENUE: (state, action) => {
@@ -40,10 +40,7 @@ export const fetchSingleVenues = (id) => async dispatch => {
     let response;
     try{
         response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`);
-        console.log(response)
         const data = await response.json()
-        //TODO error with response.json()
-
         dispatch(SET_SINGLE_VENUE(data));
         dispatch(setLoadingState(false))
     } catch (e) {

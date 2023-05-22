@@ -7,11 +7,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 const HeaderNavigation = () => {
     const [userData, setUserData] = useState('');
 
+
     useEffect(() => {
         const storedData = localStorage.getItem('user-info');
         if (storedData) {
             setUserData(JSON.parse(storedData))
         }
+
     }, [])
 
     const logOutBtn = () => {
