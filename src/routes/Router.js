@@ -8,6 +8,7 @@ import VenueDetail from "../components/views/VenueDetail";
 import CreateVenue from "../components/views/CreateVenue";
 import ProfilePage from "../components/views/ProfilePage";
 import EditAvatar from "../components/views/EditAvatar";
+import UserVenues from "../components/views/UserVenues";
 
 function Router () {
     return(
@@ -20,6 +21,7 @@ function Router () {
                 <Route path="/profilepage" element={<ProfilePage/>}/>
                 <Route path="/venueDetail/:id" element={<VenueDetail/>}/>
                 <Route path="/editavatar" element={<EditAvatar/>}/>
+                <Route path="/uservenues" element={<UserVenues/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>
         </>

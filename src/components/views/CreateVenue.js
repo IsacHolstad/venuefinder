@@ -12,6 +12,7 @@ const CreateVenue = () => {
         const valuePrice = Number(event.target.value)
         setPrice(valuePrice)
     }
+
     const handleMaxGuests = (event) => {
         const valueGuests = Number(event.target.value)
         setMaxGuests(valueGuests)
