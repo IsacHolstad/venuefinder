@@ -27,7 +27,7 @@ const ProfilePage = () => {
         const userVenueDetails = await response.json();
 
     })()
-
+    console.log(userKey)
 
      return (
         <>
@@ -78,6 +78,7 @@ const ProfilePage = () => {
             </section>
         </>
     );
-};
+
+}
 
 export default ProfilePage;

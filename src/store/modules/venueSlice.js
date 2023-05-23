@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {setLoadingState} from "./loaderSlice";
+import {useEffect, useState} from "react";
 
 const venueSlice = createSlice({
     name: 'venues',
@@ -48,3 +49,11 @@ export const fetchSingleVenues = (id) => async dispatch => {
         dispatch(setLoadingState(false))
     }
 }
+
+
+
+
+
+
+
+
