@@ -1,11 +1,8 @@
 import React, {useEffect} from 'react';
-import {Link} from "react-router-dom";
 import {useState} from "react";
 const EditAvatar = () => {
     const [avatar, setAvatar] = useState('');
     const [userData, setUserData] = useState('');
-
-
 
     useEffect(() => {
         const userData = localStorage.getItem('user-info');
@@ -13,10 +10,9 @@ const EditAvatar = () => {
             setUserData(JSON.parse(userData))
         }
     }, [])
-    const userKey = userData.accessToken
-    const userName = userData.name
-    console.log("here is name",userName)
-    console.log("hello there mister here i accestoken" ,userKey)
+    const userKey = userData.accessToken;
+    const userName = userData.name;
+    console.log(userKey)
 
     async function UpdateAvatar(event) {
         event.preventDefault();
@@ -27,12 +23,11 @@ const EditAvatar = () => {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${userKey}`
 
-
-            }, body: JSON.stringify(item)
+            },
+            body: JSON.stringify(item)
         })
         result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result))
-        console.log(localStorage)
     }
     return (
         <>
@@ -62,11 +57,11 @@ const EditAvatar = () => {
                                 </div>
                             </div>
                             <div>
-                                    <input
-                                        type="submit"
-                                        value="finish Edit"
-                                        className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    />
+                                <input
+                                    type="submit"
+                                    value="finish Edit"
+                                    className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                />
                             </div>
                         </form>
                     </div>

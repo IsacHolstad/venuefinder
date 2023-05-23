@@ -4,17 +4,16 @@ import {useSelector} from "react-redux";
 import HeaderNavigation from "./components/shared/HeaderNavigation";
 import Footer from "./components/shared/Footer";
 import Loader from "./components/shared/Loader";
+
 function App() {
-    const {isLoading} = useSelector(state => state.loader)
+    const {isLoading} = useSelector(state => state.loader);
   return (
     <>
       <HeaderNavigation/>
       <Router/>
-        { isLoading && <Loader/>}
+        { isLoading && <Loader/> }
         <Footer/>
     </>
-
-
   );
 }
 

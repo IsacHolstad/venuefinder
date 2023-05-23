@@ -1,8 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
-import React, {useEffect, useMemo} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {fetchVenues} from "../../store/modules/venueSlice";
-import {useState} from "react";
 import {MagnifyingGlassIcon} from "@heroicons/react/20/solid";
 
 function Home()   {

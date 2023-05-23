@@ -22,11 +22,9 @@ const SignUp = () => {
         })
         result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result))
-        console.log(localStorage)
     }
     const handleCheckBox = (event) => {
         setVenueManger(event.target.checked)
-        console.log(event.target.value)
     }
 
 

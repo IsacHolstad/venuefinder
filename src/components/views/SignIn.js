@@ -18,8 +18,6 @@ const SignIn = () => {
     console.log("ACCESSTOKEN HERE: ", accessToken)
 
 
-
-
    async function loggingIn(event){
        event.preventDefault();
         console.log(password, email)
