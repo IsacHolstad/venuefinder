@@ -7,10 +7,18 @@ const CreateVenue = () => {
     const [description, setDescription] = useState('');
     const [maxGuests, setMaxGuests] = useState(0);
     const [userData, setUserData] = useState('');
+    const [rating, setRating] = useState(0)
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
         setPrice(valuePrice)
+    }
+    const handleRatingChange = (event) => {
+        let valueRating = Number(event.target.value)
+        if (valueRating > 5) {
+            valueRating = 5;
+        }
+        setRating(valueRating)
     }
 
     const handleMaxGuests = (event) => {
@@ -37,6 +45,7 @@ const CreateVenue = () => {
             name: name,
             description: description,
             media: [media],
+            rating: rating,
             maxGuests: maxGuests,
             price: price
         };
@@ -78,6 +87,22 @@ const CreateVenue = () => {
                                         value={name}
                                         placeholder="venue name"
                                         required
+                                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label htmlFor="rating" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Rating
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        id="rating"
+                                        onChange={handleRatingChange}
+                                        name="rating"
+                                        type="text"
+                                        value={rating}
+                                        placeholder="0-10"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
                                 </div>
