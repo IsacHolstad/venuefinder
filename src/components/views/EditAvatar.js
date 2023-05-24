@@ -12,7 +12,6 @@ const EditAvatar = () => {
     }, [])
     const userKey = userData.accessToken;
     const userName = userData.name;
-    console.log(userKey)
 
     async function UpdateAvatar(event) {
         event.preventDefault();

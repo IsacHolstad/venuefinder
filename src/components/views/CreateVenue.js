@@ -17,6 +17,9 @@ const CreateVenue = () => {
         const valueGuests = Number(event.target.value)
         setMaxGuests(valueGuests)
     }
+    const handleMediaChange = (event) => {
+        setMedia(event.target.value)
+    }
 
 
     useEffect(() => {
@@ -112,7 +115,7 @@ const CreateVenue = () => {
                                 <div className="mt-2">
                                     <input
                                         id="image"
-                                        onChange={(e) => setMedia(e.target.value)}
+                                        onChange={handleMediaChange}
                                         name="image"
                                         value={media}
                                         type="text"

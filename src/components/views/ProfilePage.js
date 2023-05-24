@@ -13,21 +13,10 @@ const ProfilePage = () => {
     }, [])
     const userName = userData.name
     const userKey = userData.accessToken;
+    console.log("here is user key",userKey)
 
 
-    (async function getUserVenues() {
-        const response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userName}/venues`, {
-            method: "GET",
-            headers: {
-                "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${userKey}`
-            }
 
-        })
-        const userVenueDetails = await response.json();
-
-    })()
-    console.log(userKey)
 
      return (
         <>
