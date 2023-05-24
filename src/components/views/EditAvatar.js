@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useState} from "react";
+import {Link} from "react-router-dom";
 const EditAvatar = () => {
     const [avatar, setAvatar] = useState('');
     const [userData, setUserData] = useState('');

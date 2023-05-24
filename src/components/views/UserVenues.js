@@ -25,7 +25,7 @@ const UserVenues = () => {
     console.log("here is key",userKey)
 
     useEffect(() => {
-        fetchUserVenues()
+        fetchUserVenues();
     }, [])
 
 
@@ -42,10 +42,10 @@ const UserVenues = () => {
                 },
             });
             const jsonData = await response.json();
-             setUserVenue(jsonData)
+            setUserVenue (jsonData)
             dispatch(setLoadingState(false))
             console.log("here is user venue response",jsonData)
-            console.log(setUserVenue)
+            console.log("set user venue",setUserVenue)
         }catch (error) {
             console.log(error)
             dispatch(setLoadingState(false))

@@ -33,7 +33,13 @@ const CreateVenue = () => {
 
     async function postVenue(event) {
         event.preventDefault()
-        let item = {name, media, description, maxGuests, price};
+        const item = {
+            name: name,
+            description: description,
+            media: [media],
+            maxGuests: maxGuests,
+            price: price
+        };
         let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues`, {
             method: "POST",
             headers: {
