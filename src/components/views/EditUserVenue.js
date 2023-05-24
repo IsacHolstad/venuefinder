@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {setLoadingState} from "../../store/modules/loaderSlice";
 
 const EditUserVenue = () => {
     const [name, setName] = useState('');
@@ -7,6 +9,7 @@ const EditUserVenue = () => {
     const [description, setDescription] = useState('');
     const [maxGuests, setMaxGuests] = useState(0);
     const [userData, setUserData] = useState('');
+    const dispatch = useDispatch()
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
@@ -33,6 +36,7 @@ const EditUserVenue = () => {
 
     async function postVenue(event) {
         event.preventDefault()
+        dispatch(setLoadingState(true))
         let item = {name, media, description, maxGuests, price};
         let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues`, {
             method: "POST",
@@ -46,6 +50,7 @@ const EditUserVenue = () => {
         })
         result = await result.json();
         console.log(result)
+        dispatch(setLoadingState(false))
     }
 
     return (
@@ -142,7 +147,7 @@ const EditUserVenue = () => {
                             <div>
                                 <input
                                     type="submit"
-                                    value="Post Venue"
+                                    value="Update Venue"
                                     className="flex w-full justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 />
                             </div>
@@ -152,8 +157,6 @@ const EditUserVenue = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 };

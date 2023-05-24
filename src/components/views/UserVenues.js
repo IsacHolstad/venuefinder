@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
+import {setLoadingState} from "../../store/modules/loaderSlice";
 
 const UserVenues = () => {
     const [userData, setUserData] = useState('');
-    const [userVenue, setUserVenue] = useState([''])
+    const [userVenue, setUserVenue] = useState([])
+    const dispatch = useDispatch()
+
 
 
 
@@ -16,7 +19,7 @@ const UserVenues = () => {
     }, [])
 
     const userName = userData.name
-    const userKey = userData.accessToken;
+    const userKey = userData.accessToken
     console.log(userData)
     console.log(userName)
     console.log("here is key",userKey)
@@ -28,8 +31,9 @@ const UserVenues = () => {
 
 
     const fetchUserVenues = async () =>  {
+        dispatch(setLoadingState(true))
         try {
-            const response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userName}/venues`, {
+            let response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userName}/venues`, {
                 method: "GET",
                 headers: {
                     "Content-Type" : "application/json",
@@ -38,11 +42,13 @@ const UserVenues = () => {
                 },
             });
             const jsonData = await response.json();
-            const setUserVenue = jsonData
-            console.log(jsonData)
+             setUserVenue(jsonData)
+            dispatch(setLoadingState(false))
+            console.log("here is user venue response",jsonData)
             console.log(setUserVenue)
         }catch (error) {
             console.log(error)
+            dispatch(setLoadingState(false))
         }
     }
 
