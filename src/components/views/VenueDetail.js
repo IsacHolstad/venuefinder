@@ -53,8 +53,13 @@ const VenueDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="mt-4 space-y-6">
+                            <div className="mt-2 space-y-3">
                                 <p className="text-base text-gray-500">{singleVenue.description}</p>
+                                <hr/>
+                                <p className="text-base text-gray-500">{singleVenue.meta.wifi ? "Wifi Included" : "Wifi Not Included"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.pets ? "Pets Allowed" : "Pets Not Allowed"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.breakfast ? "Breakfast Included" : "Breakfast Not Included"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.parking ? "Parking Included" : "Parking Not Included"}</p>
                                 <p className="text-gray-500">MaxGuests: {singleVenue.maxGuests}</p>
                             </div>
                         </section>
@@ -67,6 +72,7 @@ const VenueDetail = () => {
                     <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
+                            {singleVenue.id}
                             <form>
                                 {userData && (
                                 <div className="mt-10">

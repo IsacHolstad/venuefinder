@@ -7,7 +7,11 @@ const CreateVenue = () => {
     const [description, setDescription] = useState('');
     const [maxGuests, setMaxGuests] = useState(0);
     const [userData, setUserData] = useState('');
-    const [rating, setRating] = useState(0)
+    const [rating, setRating] = useState(0);
+    const [wifi, setWifi] = useState(false);
+    const [pets, setPets] = useState(false);
+    const [parking, setParking] = useState(false);
+    const [breakfast, setBreakfast] = useState(false);
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
@@ -39,7 +43,6 @@ const CreateVenue = () => {
 
     const userKey = userData.accessToken;
 
-
     async function postVenue(event) {
         event.preventDefault()
         const item = {
@@ -48,7 +51,13 @@ const CreateVenue = () => {
             media: [media],
             rating: rating,
             maxGuests: maxGuests,
-            price: price
+            price: price,
+            meta: {
+                pets: pets,
+                parking: parking,
+                wifi: wifi,
+                breakfast: breakfast
+            }
         };
         let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues`, {
             method: "POST",
@@ -57,13 +66,32 @@ const CreateVenue = () => {
                 "Authorization" : `Bearer ${userKey}`
             },
             body: JSON.stringify(item),
-
-
         })
         result = await result.json();
         console.log(result)
     }
 
+    const handleCheckboxChange = (event) => {
+        const checkboxName = event.target.name;
+        const checkboxValue = event.target.checked;
+
+        switch (checkboxName) {
+            case 'wifi':
+                setWifi(checkboxValue);
+                break;
+            case 'pets':
+                setPets(checkboxValue);
+                break;
+            case 'breakfast':
+                setBreakfast(checkboxValue);
+                break;
+            case 'parking':
+                setParking(checkboxValue);
+                break;
+            default:
+                break;
+        }
+    };
     return (
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -154,6 +182,72 @@ const CreateVenue = () => {
                                         placeholder="Image URL"
                                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     />
+                                </div>
+                            </div>
+                            <div className="bg-red-500 flex gap-16 justify-center">
+                                <div className="text-sm">
+                                    <label htmlFor="wifi" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Wifi
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="wifi"
+                                            name="wifi"
+                                            type="checkbox"
+                                            checked={wifi}
+                                            onChange={handleCheckboxChange}
+                                            className="block rounded-md"
+                                            title="Does your venue have wifi?"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-sm">
+                                    <label htmlFor="parking" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Parking
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="parking"
+                                            name="parking"
+                                            type="checkbox"
+                                            checked={parking}
+                                            onChange={handleCheckboxChange}
+                                            className="block rounded-md"
+                                            title="Does your venue have parking?"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-sm">
+                                    <label htmlFor="breakfast" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Breakfast
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="breakfast"
+                                            name="breakfast"
+                                            type="checkbox"
+                                            checked={breakfast}
+                                            onChange={handleCheckboxChange}
+                                            className="block rounded-md"
+                                            title="Does your venue include breakfast?"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="text-sm">
+                                    <label htmlFor="pets" className="block text-sm font-medium leading-6 text-gray-900">
+                                        Pets
+                                    </label>
+                                    <div className="mt-2">
+                                        <input
+                                            id="pets"
+                                            name="pets"
+                                            type="checkbox"
+                                            checked={pets}
+                                            onChange={handleCheckboxChange}
+                                            className="block rounded-md"
+                                            title="Does your venue allow pets?"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div>

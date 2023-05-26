@@ -76,7 +76,7 @@ const UserVenues = () => {
                                     <div className="mt-2">
                                         <h3 className="text-sm text-gray-800">{item.name}</h3>
                                         <h3 className="text-sm text-gray-500">{item.price}$</h3>
-                                        <h3 className="text-sm text-gray-500 mb-4">{item.maxGuests}$</h3>
+                                        <h3 className="text-sm text-gray-500 mb-4">Max Guests:{item.maxGuests}</h3>
 
                                     </div>
                                     <Link to={`/EditUserVenue/${item.id}`}
