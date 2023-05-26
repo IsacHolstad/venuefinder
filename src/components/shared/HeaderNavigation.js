@@ -32,24 +32,29 @@ const HeaderNavigation = () => {
                                         <NavLink to="/" className="font-bold text-blue-400">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
+                                        {userData && (
                                         <NavLink
                                             to="/createvenue"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
                                             Create Venue
                                         </NavLink>
+                                        )}
+
                                         <NavLink
                                             to="/profilepage"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
                                             Hey👋🏼  {userData.name}
                                         </NavLink>
+
                                         <NavLink
                                             to="/signin"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
                                             SignIn
                                         </NavLink>
+                                        {userData && (
                                         <NavLink
                                             to="/signin"
                                             onClick={logOutBtn}
@@ -57,6 +62,7 @@ const HeaderNavigation = () => {
                                         >
                                             Logout
                                         </NavLink>
+                                        )}
                                     </div>
                                 </div>
                                 <div className="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
@@ -101,12 +107,15 @@ const HeaderNavigation = () => {
                         </div>
                         <Disclosure.Panel className="lg:hidden">
                             <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-50 z-50">
+                                {userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-                                ><NavLink to="/createvenue">Create Venue</NavLink>
+                                >
+                                    <NavLink to="/createvenue">Create Venue</NavLink>
                                 </Disclosure.Button>
+                                )}
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
@@ -114,6 +123,7 @@ const HeaderNavigation = () => {
                                 >
                                     <NavLink to="/profilepage">Hey👋🏼  {userData.name}</NavLink>
                                 </Disclosure.Button>
+                                {!userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
@@ -121,14 +131,16 @@ const HeaderNavigation = () => {
                                 >
                                     <NavLink to="/signin">SignIn</NavLink>
                                 </Disclosure.Button>
+                                )}
+                                {userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
-                                    onClick={logOutBtn}
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-red-600 hover:text-red-700 hover:border-gray-300 hover:bg-red-100"
                                 >
-                                    <NavLink to="/signin" className="hover:text-red-500">Logout</NavLink>
+                                    <NavLink to="/signin" onClick={logOutBtn} className="hover:text-red-500">Logout</NavLink>
                                 </Disclosure.Button>
+                                )}
                             </div>
                         </Disclosure.Panel>
                     </>

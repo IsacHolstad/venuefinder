@@ -13,16 +13,12 @@ const SignIn = () => {
             setUserData(JSON.parse(userData))
         }
     }, [])
-    console.log("data here", userData)
     const accessToken = userData.accessToken
-    console.log("ACCESSTOKEN HERE: ", accessToken)
 
 
    async function loggingIn(event){
         event.preventDefault()
-        console.log(password, email)
         let item = {email, password};
-       console.log(item)
        let result =  await fetch('https://nf-api.onrender.com/api/v1/holidaze/auth/login', {
            method: 'POST',
            headers: {
@@ -32,9 +28,7 @@ const SignIn = () => {
 
        });
         result = await result.json();
-        console.log(result)
         localStorage.setItem("user-info", JSON.stringify(result))
-
     }
 
 
@@ -81,11 +75,13 @@ const SignIn = () => {
                                 </div>
                             </div>
                             <div>
-                                <input
+                                <button
                                     type="submit"
                                     value="Sign In"
-                                    className="flex w-full justify-center rounded-md hover:pointer  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                />
+                                    placeholder="Sign In"
+                                    className="flex w-full justify-center rounded-md hover:pointer  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    Sign in
+                                </button>
                             </div>
                             <Link to="/signup">
                                 <p className="text-sm text-blue-400 mt-4">Dont Have Account? Click Here</p>
