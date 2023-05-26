@@ -53,13 +53,14 @@ const VenueDetail = () => {
                                     </div>
                                 </div>
                             </div>
+                            <p className="font-medium text-gray-700 mt-2 mb-4 inline-flex gap-2">Venue Owner: <div className="text-blue-400">{singleVenue.owner.name}</div></p>
                             <div className="mt-2 space-y-3">
                                 <p className="text-base text-gray-500">{singleVenue.description}</p>
                                 <hr/>
-                                <p className="text-base text-gray-500">{singleVenue.meta.wifi ? "Wifi Included" : "Wifi Not Included"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.pets ? "Pets Allowed" : "Pets Not Allowed"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.breakfast ? "Breakfast Included" : "Breakfast Not Included"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.parking ? "Parking Included" : "Parking Not Included"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.wifi ? "Wifi ✅" : "Wifi ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.pets ? "Pets ✅" : "Pets ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.breakfast ? "Breakfast ✅" : "Breakfast ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue.meta.parking ? "Parking ✅" : "Parking ❌"}</p>
                                 <p className="text-gray-500">MaxGuests: {singleVenue.maxGuests}</p>
                             </div>
                         </section>
