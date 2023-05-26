@@ -25,7 +25,7 @@ export default venueSlice.reducer;
 export const fetchVenues = () => async (dispatch) => {
     dispatch(setLoadingState(true))
     try{
-        const response = await fetch ("https://nf-api.onrender.com/api/v1/holidaze/venues");
+        const response = await fetch ("https://nf-api.onrender.com/api/v1/holidaze/venues?sort=created");
         const data = await response.json();
         dispatch(SET_VENUE(data));
         dispatch(setLoadingState(false))
