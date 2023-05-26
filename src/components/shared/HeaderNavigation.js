@@ -19,9 +19,7 @@ const HeaderNavigation = () => {
         localStorage.clear();
         window.location.reload();
     }
-    const refreshPage = () => {
-        window.location.reload()
-    }
+
     return (
         <>
             <Disclosure as="nav" className="bg-white border-b-2 border-blue-400">
@@ -31,7 +29,7 @@ const HeaderNavigation = () => {
                             <div className="flex h-16 justify-between">
                                 <div className="flex px-2 lg:px-0">
                                     <div className="flex flex-shrink-0 items-center">
-                                        <NavLink to="/" onClick={refreshPage} className="font-bold text-blue-400">VenueFinder</NavLink>
+                                        <NavLink to="/"  className="font-bold text-blue-400">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                                         {userData && (

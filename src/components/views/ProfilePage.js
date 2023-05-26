@@ -20,6 +20,7 @@ const ProfilePage = () => {
 
      return (
         <>
+            {userData && (
             <section className="pt-16 bg-blueGray-50">
                 <div className="w-full lg:w-4/12 px-4 mx-auto">
                     <div
@@ -65,6 +66,17 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </section>
+            )}
+            {!userData && (
+                <div className="mx-auto text-center mt-14">
+                    <h1 className="font-semibold">You are not logged in</h1>
+                    <Link to="/signin">
+                        <button className="flex mt-4 w-32 mx-auto  justify-center rounded-md  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                             Sign in
+                        </button>
+                    </Link>
+                </div>
+            )}
         </>
     );
 
