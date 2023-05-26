@@ -18,6 +18,7 @@ const HeaderNavigation = () => {
 
     const logOutBtn = () => {
         localStorage.clear();
+        window.location.reload();
     }
     return (
         <>
