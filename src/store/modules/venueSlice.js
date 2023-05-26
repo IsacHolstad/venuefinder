@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {setLoadingState} from "./loaderSlice";
-import {useEffect, useState} from "react";
 
 
 const venueSlice = createSlice({

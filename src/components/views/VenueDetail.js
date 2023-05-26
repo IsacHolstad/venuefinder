@@ -1,24 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {fetchSingleVenues} from "../../store/modules/venueSlice";
 import {useSelector, useDispatch} from "react-redux";
-import {useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 
 const VenueDetail = () => {
+    const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
+
     useEffect(() => {
         if (id) {
             dispatch(fetchSingleVenues(id))
         }
     }, [dispatch, id]);
-    const bookedVenueBtn = () =>{
-        alert("Venue is booked")
-    }
-    function buttonBooking(event) {
+
+    useEffect(() => {
+        const userData = localStorage.getItem('user-info');
+        if (userData) {
+            setUserData(JSON.parse(userData))
+        }
+    }, [])
+
+    const bookedVenueBtn = (event) =>{
         event.preventDefault()
+        alert("Venue is booked")
     }
 
 
@@ -61,6 +68,7 @@ const VenueDetail = () => {
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
                             <form>
+                                {userData && (
                                 <div className="mt-10">
                                     <button
                                         type="submit"
@@ -70,6 +78,7 @@ const VenueDetail = () => {
                                         Book {singleVenue.name}
                                     </button>
                                 </div>
+                                )}
                             </form>
                         </section>
                     </div>

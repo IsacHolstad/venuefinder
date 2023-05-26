@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 const ProfilePage = () => {
     const [userData, setUserData] = useState('');
 
-
     useEffect(() => {
         const userData = localStorage.getItem('user-info');
         if (userData) {

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {setLoadingState} from "../../store/modules/loaderSlice";
+import {useParams} from "react-router-dom";
 
 const EditUserVenue = () => {
     const [name, setName] = useState('');
@@ -8,12 +9,22 @@ const EditUserVenue = () => {
     const [media, setMedia] = useState([]);
     const [description, setDescription] = useState('');
     const [maxGuests, setMaxGuests] = useState(0);
+    const [rating, setRating] = useState(0);
     const [userData, setUserData] = useState('');
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    let {id} = useParams();
+    console.log("here brother",id)
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
         setPrice(valuePrice)
+    }
+    const handleRatingChange = (event) => {
+        let valueRating = Number(event.target.value)
+        if (valueRating > 5) {
+            valueRating = 5;
+        }
+        setRating(valueRating)
     }
 
     const handleMaxGuests = (event) => {
@@ -37,9 +48,16 @@ const EditUserVenue = () => {
     async function postVenue(event) {
         event.preventDefault()
         dispatch(setLoadingState(true))
-        let item = {name, media, description, maxGuests, price};
-        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues`, {
-            method: "POST",
+        const item = {
+            name: name,
+            description: description,
+            media: [media],
+            rating: rating,
+            maxGuests: maxGuests,
+            price: price
+        };
+        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${userKey}`
@@ -49,7 +67,7 @@ const EditUserVenue = () => {
 
         })
         result = await result.json();
-        console.log(result)
+        console.log("here hellooo",result.id)
         dispatch(setLoadingState(false))
     }
 

@@ -10,6 +10,7 @@ import ProfilePage from "../components/views/ProfilePage";
 import EditAvatar from "../components/views/EditAvatar";
 import UserVenues from "../components/views/UserVenues";
 import EditUserVenue from "../components/views/EditUserVenue";
+import ViewBookings from "../components/views/ViewBookings";
 
 function Router () {
     return(
@@ -22,7 +23,8 @@ function Router () {
                 <Route path="/profilepage" element={<ProfilePage/>}/>
                 <Route path="/venueDetail/:id" element={<VenueDetail/>}/>
                 <Route path="/editavatar" element={<EditAvatar/>}/>
-                <Route path="/edituservenue" element={<EditUserVenue/>}/>
+                <Route path="/EditUserVenue/:id" element={<EditUserVenue/>}/>
+                <Route path="/viewbookings" element={<ViewBookings/>}/>
                 <Route path="/uservenues" element={<UserVenues/>}/>
                 <Route path="*" element={<PageNotFound/>}/>
             </Routes>

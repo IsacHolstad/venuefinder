@@ -36,6 +36,7 @@ const CreateVenue = () => {
             setUserData(JSON.parse(userData))
         }
     }, [])
+
     const userKey = userData.accessToken;
 
 
@@ -183,8 +184,6 @@ const CreateVenue = () => {
                     </div>
                 </div>
             </div>
-
-
         </>
     );
 };
