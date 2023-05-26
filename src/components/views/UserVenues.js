@@ -7,6 +7,7 @@ import { setLoadingState } from '../../store/modules/loaderSlice';
 const UserVenues = () => {
     const [userData, setUserData] = useState('');
     const [userVenue, setUserVenue] = useState([]);
+    const [venuesId, setVenuesId] = useState([]);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,9 +35,7 @@ const UserVenues = () => {
     const fetchUserVenues = async () => {
         dispatch(setLoadingState(true));
         try {
-            let response = await fetch(
-                `https://nf-api.onrender.com/api/v1/holidaze/profiles/ea7/venues`,
-                {
+            let response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/ea7/venues`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -44,8 +43,12 @@ const UserVenues = () => {
                     },
                 }
             );
+
             const jsonData = await response.json();
             setUserVenue(jsonData);
+            const venuesId = jsonData.map(item => item.id)
+            setVenuesId(venuesId)
+            console.log(venuesId)
             dispatch(setLoadingState(false));
 
         } catch (error) {
@@ -53,8 +56,25 @@ const UserVenues = () => {
             dispatch(setLoadingState(false));
         }
     };
+    console.log(venuesId)
 
-
+        const handleDelete = (venuesId) => {
+              fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${venuesId}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization" : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ4MiwibmFtZSI6ImVhNyIsImVtYWlsIjoiZWE3QHN0dWQubm9yb2ZmLm5vIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXN0YXVyYW50Y2xpY2tzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMi8wMy9ndXktZmllcmktbmV0LXdvcnRoLmpwZyIsInZlbnVlTWFuYWdlciI6dHJ1ZSwiaWF0IjoxNjg1MTA3MzAwfQ.PYpmYqX0KQRIMCCTIjfNWga2j9lnAcJevNWfV8k824c`,
+                }
+            })
+                .then(response => {
+                    if (response.ok){
+                        console.log("deleting venue success")
+                    }else {
+                        throw new Error('Deleting venue failed')
+                    }
+                }).catch(error => {
+                console.log(error)
+            })
+        }
 
     return (
         <>
@@ -87,8 +107,9 @@ const UserVenues = () => {
                                     <input
                                         type="button"
                                         value="Delete Venue"
+                                        onClick={() => handleDelete(item.id)}
                                         className="rounded-md ml-3  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-red-600 hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-                                    />
+                                        />
                                     <input
                                         type="button"
                                         value="Post Bookings"

@@ -29,20 +29,21 @@ const VenueDetail = () => {
     }
 
 
+
     return (
         <>
             <div className="bg-white">
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                     <div className="lg:max-w-lg lg:self-end">
                         <div className="mt-4">
-                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">{singleVenue.name}</h1>
+                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">{singleVenue && singleVenue.name}</h1>
                         </div>
                         <section aria-labelledby="information-heading" className="mt-4">
                             <h2 id="information-heading" className="sr-only">
                                 Venue Information
                             </h2>
                             <div className="flex items-center">
-                                <p className="text-lg text-gray-900 sm:text-xl">{singleVenue.price}$</p>
+                                <p className="text-lg text-gray-900 sm:text-xl">{singleVenue && singleVenue.price}$</p>
                                 <div className="ml-4 border-l border-gray-300 pl-4">
                                     <h2 className="sr-only">Rating</h2>
                                     <div className="flex items-center">
@@ -53,14 +54,14 @@ const VenueDetail = () => {
                                     </div>
                                 </div>
                             </div>
-                            <p className="font-medium text-gray-700 mt-2 mb-4 inline-flex gap-2">Venue Owner: <div className="text-blue-400">{singleVenue.owner.name}</div></p>
+                            <p className="font-medium text-gray-700 mt-2 mb-4 inline-flex gap-2">Venue Owner: {singleVenue && singleVenue.owner && singleVenue.owner.name ? singleVenue.owner.name : 'no name'} </p>
                             <div className="mt-2 space-y-3">
-                                <p className="text-base text-gray-500">{singleVenue.description}</p>
+                                <p className="text-base text-gray-500">{singleVenue && singleVenue.description}</p>
                                 <hr/>
-                                <p className="text-base text-gray-500">{singleVenue.meta.wifi ? "Wifi ✅" : "Wifi ❌"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.pets ? "Pets ✅" : "Pets ❌"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.breakfast ? "Breakfast ✅" : "Breakfast ❌"}</p>
-                                <p className="text-base text-gray-500">{singleVenue.meta.parking ? "Parking ✅" : "Parking ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue && singleVenue.meta && singleVenue.meta.wifi ? "Wifi ✅" : "Wifi ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue && singleVenue.meta && singleVenue.meta.pets ? "Pets ✅" : "Pets ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue && singleVenue.meta && singleVenue.meta.breakfast ? "Breakfast ✅" : "Breakfast ❌"}</p>
+                                <p className="text-base text-gray-500">{singleVenue && singleVenue.meta && singleVenue.meta.parking ? "Parking ✅" : "Parking ❌"}</p>
                                 <p className="text-gray-500">MaxGuests: {singleVenue.maxGuests}</p>
                             </div>
                         </section>

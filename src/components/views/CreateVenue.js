@@ -184,7 +184,7 @@ const CreateVenue = () => {
                                     />
                                 </div>
                             </div>
-                            <div className="bg-red-500 flex gap-16 justify-center">
+                            <div className="flex gap-16 justify-center">
                                 <div className="text-sm">
                                     <label htmlFor="wifi" className="block text-sm font-medium leading-6 text-gray-900">
                                         Wifi
