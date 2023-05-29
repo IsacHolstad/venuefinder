@@ -13,10 +13,10 @@ const SignIn = () => {
             setUserData(JSON.parse(userData))
         }
     }, [])
-    const userKey = userData.accessToken;
 
 
-   async function loggingIn(event){
+
+    async function loggingIn(event){
         event.preventDefault()
         let item = {email, password};
        let result =  await fetch('https://nf-api.onrender.com/api/v1/holidaze/auth/login', {
@@ -91,5 +91,7 @@ const SignIn = () => {
             </div>
         </>
     )};
+
+
 export default SignIn;
 

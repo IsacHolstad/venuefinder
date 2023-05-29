@@ -1,27 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import {getUserData} from "../../data/Auth";
 const EditAvatar = () => {
     const [avatar, setAvatar] = useState('');
-    const [userData, setUserData] = useState('');
+    const userLocalData = getUserData()
 
-    useEffect(() => {
-        const userData = localStorage.getItem('user-info');
-        if (userData) {
-            setUserData(JSON.parse(userData))
-        }
-    }, [])
-    const userKey = userData.accessToken;
-    const userName = userData.name;
+    if (userLocalData) {
+        const {name, accessToken} = userLocalData
+        console.log("name here hello friend", name)
+        console.log("token here fmy friend", accessToken)
+    }
+
+
 
     async function UpdateAvatar(event) {
         event.preventDefault();
         let item = {avatar};
-        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userName}/media`, {
+        let result = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userLocalData.name}/media`, {
             method: "PUT",
             headers: {
                 "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${userKey}`
+                "Authorization" : `Bearer ${userLocalData.accessToken}`
 
             },
             body: JSON.stringify(item)

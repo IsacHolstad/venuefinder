@@ -3,12 +3,12 @@ import {fetchSingleVenues} from "../../store/modules/venueSlice";
 import {useSelector, useDispatch} from "react-redux";
 import {useParams} from "react-router-dom";
 
-
 const VenueDetail = () => {
     const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
+
 
     useEffect(() => {
         if (id) {
@@ -16,12 +16,6 @@ const VenueDetail = () => {
         }
     }, [dispatch, id]);
 
-    useEffect(() => {
-        const userData = localStorage.getItem('user-info');
-        if (userData) {
-            setUserData(JSON.parse(userData))
-        }
-    }, [])
 
     const bookedVenueBtn = (event) =>{
         event.preventDefault()

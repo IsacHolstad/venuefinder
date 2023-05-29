@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setLoadingState } from '../../store/modules/loaderSlice';
+import {getUserData} from "../../data/Auth";
 
 
 const UserVenues = () => {
@@ -9,6 +10,8 @@ const UserVenues = () => {
     const [userVenue, setUserVenue] = useState([]);
     const [venuesId, setVenuesId] = useState([]);
     const dispatch = useDispatch();
+    const userLocalData = getUserData()
+
 
     useEffect(() => {
         const userData = localStorage.getItem('user-info');
@@ -16,8 +19,13 @@ const UserVenues = () => {
             setUserData(JSON.parse(userData))
         }
     }, [dispatch])
-    const userKey = userData.accessToken;
-    const userName = userData.name
+
+
+    if (userLocalData) {
+        const {name, accessToken} = userLocalData
+        console.log("name here hello friend", name)
+        console.log("token here fmy friend", accessToken)
+    }
 
 
 
@@ -35,11 +43,11 @@ const UserVenues = () => {
     const fetchUserVenues = async () => {
         dispatch(setLoadingState(true));
         try {
-            let response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/ea7/venues`, {
+            let response = await fetch(`https://nf-api.onrender.com/api/v1/holidaze/profiles/${userLocalData.name}/venues`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ4MiwibmFtZSI6ImVhNyIsImVtYWlsIjoiZWE3QHN0dWQubm9yb2ZmLm5vIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXN0YXVyYW50Y2xpY2tzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMi8wMy9ndXktZmllcmktbmV0LXdvcnRoLmpwZyIsInZlbnVlTWFuYWdlciI6dHJ1ZSwiaWF0IjoxNjg1MTA3MzAwfQ.PYpmYqX0KQRIMCCTIjfNWga2j9lnAcJevNWfV8k824c`,
+                        'Authorization': `Bearer ${userLocalData.accessToken}`,
                     },
                 }
             );
@@ -62,7 +70,7 @@ const UserVenues = () => {
               fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${venuesId}`, {
                 method: "DELETE",
                 headers: {
-                    "Authorization" : `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQ4MiwibmFtZSI6ImVhNyIsImVtYWlsIjoiZWE3QHN0dWQubm9yb2ZmLm5vIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXN0YXVyYW50Y2xpY2tzLmNvbS93cC1jb250ZW50L3VwbG9hZHMvMjAyMi8wMy9ndXktZmllcmktbmV0LXdvcnRoLmpwZyIsInZlbnVlTWFuYWdlciI6dHJ1ZSwiaWF0IjoxNjg1MTA3MzAwfQ.PYpmYqX0KQRIMCCTIjfNWga2j9lnAcJevNWfV8k824c`,
+                    "Authorization" : `Bearer ${userLocalData.accessToken}`,
                 }
             })
                 .then(response => {
@@ -110,11 +118,6 @@ const UserVenues = () => {
                                         onClick={() => handleDelete(item.id)}
                                         className="rounded-md ml-3  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-red-600 hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                                         />
-                                    <input
-                                        type="button"
-                                        value="Post Bookings"
-                                        className="rounded-md ml-5 mt-2 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    />
                                 </div>
                             ))}
                     </div>

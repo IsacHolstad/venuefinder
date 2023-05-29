@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {getUserData} from "../../data/Auth";
 
 const CreateVenue = () => {
     const [name, setName] = useState('');
@@ -12,6 +13,14 @@ const CreateVenue = () => {
     const [pets, setPets] = useState(false);
     const [parking, setParking] = useState(false);
     const [breakfast, setBreakfast] = useState(false);
+    const userLocalData = getUserData()
+
+    if (userLocalData) {
+        const {name, accessToken} = userLocalData
+        console.log("name here hello friend", name)
+        console.log("token here fmy friend", accessToken)
+    }
+
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
@@ -34,15 +43,6 @@ const CreateVenue = () => {
     }
 
 
-    useEffect(() => {
-        const userData = localStorage.getItem('user-info');
-        if (userData) {
-            setUserData(JSON.parse(userData))
-        }
-    }, [])
-
-    const userKey = userData.accessToken;
-
     async function postVenue(event) {
         event.preventDefault()
         const item = {
@@ -63,7 +63,7 @@ const CreateVenue = () => {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${userKey}`
+                "Authorization" : `Bearer ${userLocalData.accessToken}`
             },
             body: JSON.stringify(item),
         })

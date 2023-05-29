@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {setLoadingState} from "../../store/modules/loaderSlice";
 import {useParams} from "react-router-dom";
+import {getUserData} from "../../data/Auth";
 
 const EditUserVenue = () => {
     const [name, setName] = useState('');
@@ -13,7 +14,14 @@ const EditUserVenue = () => {
     const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
     let {id} = useParams();
-    console.log("here brother",id)
+    const userLocalData = getUserData()
+
+    if (userLocalData) {
+        const {name, accessToken} = userLocalData
+        console.log("name here hello friend", name)
+        console.log("token here fmy friend", accessToken)
+    }
+
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
@@ -42,7 +50,6 @@ const EditUserVenue = () => {
             setUserData(JSON.parse(userData))
         }
     }, [])
-    const userKey = userData.accessToken;
 
 
     async function postVenue(event) {
@@ -60,7 +67,7 @@ const EditUserVenue = () => {
             method: "PUT",
             headers: {
                 "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${userKey}`
+                "Authorization" : `Bearer ${userLocalData.accessToken}`
             },
             body: JSON.stringify(item),
 
