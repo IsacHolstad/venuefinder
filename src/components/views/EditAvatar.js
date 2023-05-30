@@ -3,12 +3,10 @@ import {useState} from "react";
 import {getUserData} from "../../data/Auth";
 const EditAvatar = () => {
     const [avatar, setAvatar] = useState('');
-    const userLocalData = getUserData()
+    const userLocalData = getUserData();
 
     if (userLocalData) {
-        const {name, accessToken} = userLocalData
-        console.log("name here hello friend", name)
-        console.log("token here fmy friend", accessToken)
+        const {name, accessToken} = userLocalData;
     }
 
 

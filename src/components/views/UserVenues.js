@@ -105,7 +105,6 @@ const UserVenues = () => {
                                         <h3 className="text-sm text-gray-800">{item.name}</h3>
                                         <h3 className="text-sm text-gray-500">{item.price}$</h3>
                                         <h3 className="text-sm text-gray-500 mb-4">Max Guests:{item.maxGuests}</h3>
-
                                     </div>
                                     <Link to={`/EditUserVenue/${item.id}`}
                                           className="rounded-md mr-3  px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm bg-indigo-600 hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

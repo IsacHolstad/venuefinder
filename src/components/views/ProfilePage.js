@@ -3,13 +3,11 @@ import {Link} from "react-router-dom";
 import {getUserData} from "../../data/Auth";
 
 const ProfilePage = () => {
-    const userLocalData = getUserData()
+    const userLocalData = getUserData();
 
     if (userLocalData) {
-        const {name, accessToken, avatar} = userLocalData
+        const {name, accessToken, avatar} = userLocalData;
     }
-
-
 
 
 

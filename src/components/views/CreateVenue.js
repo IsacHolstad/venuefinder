@@ -7,7 +7,6 @@ const CreateVenue = () => {
     const [media, setMedia] = useState([]);
     const [description, setDescription] = useState('');
     const [maxGuests, setMaxGuests] = useState(0);
-    const [userData, setUserData] = useState('');
     const [rating, setRating] = useState(0);
     const [wifi, setWifi] = useState(false);
     const [pets, setPets] = useState(false);
@@ -16,7 +15,7 @@ const CreateVenue = () => {
     const userLocalData = getUserData()
 
     if (userLocalData) {
-        const {name, accessToken} = userLocalData
+        const {name, accessToken} = userLocalData;
 
     }
 
