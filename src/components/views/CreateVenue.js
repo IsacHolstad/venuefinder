@@ -66,6 +66,7 @@ const CreateVenue = () => {
             body: JSON.stringify(item),
         })
         result = await result.json();
+        window.location.replace("/");
         console.log(result)
     }
 

@@ -25,6 +25,7 @@ const EditAvatar = () => {
         })
         result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result))
+        window.location.replace("/profilepage")
     }
     return (
         <>
