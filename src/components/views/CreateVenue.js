@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {getUserData} from "../../data/Auth";
 
 const CreateVenue = () => {
@@ -18,7 +18,6 @@ const CreateVenue = () => {
         const {name, accessToken} = userLocalData;
 
     }
-
 
     const handlePriceChange = (event) => {
         const valuePrice = Number(event.target.value)
@@ -67,7 +66,6 @@ const CreateVenue = () => {
         })
         result = await result.json();
         window.location.replace("/");
-        console.log(result)
     }
 
     const handleCheckboxChange = (event) => {

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 
-
 const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -12,7 +11,6 @@ const SignUp = () => {
     async function register(event) {
         event.preventDefault()
         let item = {name, email, password, venueManager, avatar}
-        console.log(item)
         let result = await fetch("https://nf-api.onrender.com/api/v1/holidaze/auth/register", {
             method: "POST",
             headers: {

@@ -49,13 +49,3 @@ export const fetchSingleVenues = (id) => async dispatch => {
         dispatch(setLoadingState(false))
     }
 }
-
-
-
-
-
-
-
-
-
-

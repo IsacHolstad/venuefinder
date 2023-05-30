@@ -14,12 +14,10 @@ const EditUserVenue = () => {
     const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
     let {id} = useParams();
-    const userLocalData = getUserData()
+    const userLocalData = getUserData();
 
     if (userLocalData) {
-        const {name, accessToken} = userLocalData
-        console.log("name here hello friend", name)
-        console.log("token here fmy friend", accessToken)
+        const {name, accessToken} = userLocalData;
     }
 
 
@@ -74,7 +72,6 @@ const EditUserVenue = () => {
 
         })
         result = await result.json();
-        console.log("here hellooo",result.id)
         dispatch(setLoadingState(false))
     }
 

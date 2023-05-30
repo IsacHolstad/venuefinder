@@ -12,14 +12,14 @@ const SignIn = () => {
         if (userData) {
             setUserData(JSON.parse(userData))
         }
-    }, [])
+    }, []);
 
 
 
     async function loggingIn(event){
         event.preventDefault()
         let item = {email, password};
-       let result =  await fetch('https://nf-api.onrender.com/api/v1/holidaze/auth/login', {
+        let result =  await fetch('https://nf-api.onrender.com/api/v1/holidaze/auth/login', {
            method: 'POST',
            headers: {
                "Content-Type" : "application/json",
@@ -93,6 +93,4 @@ const SignIn = () => {
         </>
     )};
 
-
 export default SignIn;
-

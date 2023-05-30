@@ -8,10 +8,13 @@ function Home()   {
     const dispatch = useDispatch();
     const {venues} = useSelector(state => state.venues);
     const [search, setSearch] = useState('');
+
     useEffect(() => {
         dispatch(fetchVenues());
     }, [dispatch]);
-    const memoVenue = useMemo(() => venues, [venues])
+
+    const memoVenue = useMemo(() => venues, [venues]);
+
     return (
         <>
             <div className="bg-white">

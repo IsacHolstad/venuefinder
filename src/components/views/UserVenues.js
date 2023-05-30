@@ -10,7 +10,7 @@ const UserVenues = () => {
     const [userVenue, setUserVenue] = useState([]);
     const [venuesId, setVenuesId] = useState([]);
     const dispatch = useDispatch();
-    const userLocalData = getUserData()
+    const userLocalData = getUserData();
 
 
     useEffect(() => {
@@ -23,8 +23,6 @@ const UserVenues = () => {
 
     if (userLocalData) {
         const {name, accessToken} = userLocalData
-        console.log("name here hello friend", name)
-        console.log("token here fmy friend", accessToken)
     }
 
 
@@ -33,7 +31,6 @@ const UserVenues = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        console.log('here is user venues', userVenue);
     }, [userVenue]);
 
     const fetchUserVenues = async () => {
@@ -52,7 +49,6 @@ const UserVenues = () => {
             setUserVenue(jsonData);
             const venuesId = jsonData.map(item => item.id)
             setVenuesId(venuesId)
-            console.log(venuesId)
             dispatch(setLoadingState(false));
 
         } catch (error) {
@@ -60,7 +56,6 @@ const UserVenues = () => {
             dispatch(setLoadingState(false));
         }
     };
-    console.log(venuesId)
 
         const handleDelete = (venuesId) => {
               fetch(`https://nf-api.onrender.com/api/v1/holidaze/venues/${venuesId}`, {
@@ -71,9 +66,9 @@ const UserVenues = () => {
             })
                 .then(response => {
                     if (response.ok){
-                        console.log("deleting venue success")
+                        window.location.reload();
                     }else {
-                        throw new Error('Deleting venue failed')
+                        alert("Venue Could Not Be Deleted")
                     }
                 }).catch(error => {
                 console.log(error)

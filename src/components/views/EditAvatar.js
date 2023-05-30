@@ -10,7 +10,6 @@ const EditAvatar = () => {
     }
 
 
-
     async function UpdateAvatar(event) {
         event.preventDefault();
         let item = {avatar};

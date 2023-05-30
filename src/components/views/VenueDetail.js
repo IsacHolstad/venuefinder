@@ -23,12 +23,10 @@ const VenueDetail = () => {
         }
     }, [dispatch, id]);
 
-
     const bookedVenueBtn = (event) =>{
         event.preventDefault()
         alert("Venue is booked")
     }
-
 
 
     return (
