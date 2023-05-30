@@ -17,8 +17,7 @@ const CreateVenue = () => {
 
     if (userLocalData) {
         const {name, accessToken} = userLocalData
-        console.log("name here hello friend", name)
-        console.log("token here fmy friend", accessToken)
+
     }
 
 
