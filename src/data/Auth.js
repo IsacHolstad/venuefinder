@@ -1,4 +1,4 @@
-export function getUserData() {
+export const getUserData = () => {
     const localUserData = localStorage.getItem('user-info');
     if (localUserData) {
         const parsedLocalUserData = JSON.parse(localUserData);

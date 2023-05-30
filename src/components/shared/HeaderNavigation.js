@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import {getUserData} from "../../data/Auth";
 
 const HeaderNavigation = () => {
-    const userLocalData = getUserData()
+    const [userData, setUserData] = useState("");
 
-    if (userLocalData) {
-        const {name, accessToken} = userLocalData
-    }
+    useEffect(() => {
+        const userData = localStorage.getItem('user-info');
+        if (userData) {
+            setUserData(JSON.parse(userData));
+        }
+    }, []);
 
     const logOutBtn = () => {
         localStorage.clear();
@@ -29,7 +31,7 @@ const HeaderNavigation = () => {
                                         <NavLink to="/"  className="font-bold text-blue-400">VenueFinder</NavLink>
                                     </div>
                                     <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                                        {userLocalData && (
+                                        {userData && (
                                         <NavLink
                                             to="/createvenue"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -41,9 +43,9 @@ const HeaderNavigation = () => {
                                             to="/profilepage"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
                                         >
-                                            Hey👋🏼  {userLocalData.name}
+                                            Hey👋🏼  {userData.name}
                                         </NavLink>
-                                        {!userLocalData && (
+                                        {!userData && (
                                         <NavLink
                                             to="/signin"
                                             className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -51,7 +53,7 @@ const HeaderNavigation = () => {
                                             SignIn
                                         </NavLink>
                                         )}
-                                        {!userLocalData && (
+                                        {!userData && (
                                             <NavLink
                                                 to="/signup"
                                                 className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
@@ -59,7 +61,7 @@ const HeaderNavigation = () => {
                                                 SignUp
                                             </NavLink>
                                         )}
-                                        {userLocalData && (
+                                        {userData && (
                                         <NavLink
                                             to="/signin"
                                             onClick={logOutBtn}
@@ -112,7 +114,7 @@ const HeaderNavigation = () => {
                         </div>
                         <Disclosure.Panel className="lg:hidden">
                             <div className="space-y-1 pb-3 pt-2 absolute w-full bg-gray-50 z-50">
-                                {userLocalData && (
+                                {userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
@@ -126,9 +128,9 @@ const HeaderNavigation = () => {
                                     href="#"
                                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
                                 >
-                                    <NavLink to="/profilepage">Hey👋🏼  {userLocalData.name}</NavLink>
+                                    <NavLink to="/profilepage">Hey👋🏼  {userData.name}</NavLink>
                                 </Disclosure.Button>
-                                {!userLocalData && (
+                                {!userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
@@ -137,7 +139,7 @@ const HeaderNavigation = () => {
                                     <NavLink to="/signin">SignIn</NavLink>
                                 </Disclosure.Button>
                                 )}
-                                {!userLocalData && (
+                                {!userData && (
                                     <Disclosure.Button
                                         as="a"
                                         href="#"
@@ -146,7 +148,7 @@ const HeaderNavigation = () => {
                                         <NavLink to="/signup">SignUp</NavLink>
                                     </Disclosure.Button>
                                 )}
-                                {userLocalData && (
+                                {userData && (
                                 <Disclosure.Button
                                     as="a"
                                     href="#"
