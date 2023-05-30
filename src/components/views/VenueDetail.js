@@ -1,13 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {fetchSingleVenues} from "../../store/modules/venueSlice";
 import {useSelector, useDispatch} from "react-redux";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
+import {getUserData} from "../../data/Auth";
 
 const VenueDetail = () => {
-    const [userData, setUserData] = useState('');
     const dispatch = useDispatch();
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
+    const userLocalData = getUserData()
+
+    if (userLocalData) {
+        const {accessToken} = userLocalData
+    }
 
 
     useEffect(() => {
@@ -68,9 +73,8 @@ const VenueDetail = () => {
                     <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
-                            {singleVenue.id}
                             <form>
-                                {userData && (
+                                {userLocalData.accessToken && (
                                 <div className="mt-10">
                                     <button
                                         type="submit"
@@ -80,6 +84,18 @@ const VenueDetail = () => {
                                         Book {singleVenue.name}
                                     </button>
                                 </div>
+                                )}
+                                {!userLocalData.accessToken && (
+                                    <div className="mt-10">
+                                        <Link to="/signin">
+                                            <button
+                                                type="submit"
+                                                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                                            >
+                                                SignIn To Book Venue
+                                            </button>
+                                        </Link>
+                                    </div>
                                 )}
                             </form>
                         </section>
