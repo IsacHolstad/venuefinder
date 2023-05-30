@@ -28,10 +28,6 @@ const UserVenues = () => {
     }
 
 
-
-
-
-
     useEffect(() => {
         dispatch(fetchUserVenues)
     }, [dispatch]);

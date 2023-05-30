@@ -1,18 +1,20 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {fetchSingleVenues} from "../../store/modules/venueSlice";
 import {useSelector, useDispatch} from "react-redux";
 import {Link, useParams} from "react-router-dom";
-import {getUserData} from "../../data/Auth";
 
 const VenueDetail = () => {
     const dispatch = useDispatch();
     const {singleVenue} = useSelector(state => state.venues);
     let {id} = useParams();
-    const userLocalData = getUserData()
+    const [userData, setUserData] = useState("");
 
-    if (userLocalData) {
-        const {accessToken} = userLocalData
-    }
+    useEffect(() => {
+        const userData = localStorage.getItem('user-info');
+        if (userData) {
+            setUserData(JSON.parse(userData));
+        }
+    }, []);
 
 
     useEffect(() => {
@@ -74,7 +76,7 @@ const VenueDetail = () => {
                         <section aria-labelledby="options-heading">
                             <p className="text-gray-500">Posted: {singleVenue.created}</p>
                             <form>
-                                {userLocalData.accessToken && (
+                                {userData.accessToken && (
                                 <div className="mt-10">
                                     <button
                                         type="submit"
@@ -85,7 +87,7 @@ const VenueDetail = () => {
                                     </button>
                                 </div>
                                 )}
-                                {!userLocalData.accessToken && (
+                                {!userData.accessToken && (
                                     <div className="mt-10">
                                         <Link to="/signin">
                                             <button
